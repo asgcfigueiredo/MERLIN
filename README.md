@@ -67,10 +67,11 @@ mvn exec:java -Dexec.args="-[flags]"
 
 The available flags are the following:
 
+* --mount [path] - Directory to be mount
 
 ## Authors
 
 * **[Alexandra Figueiredo](https://github.com/asgcfigueiredo)**
-* **[Tatjana Lide]**
-* **[David Matos](https://github.com/mpcorreia)**
+* **Tatjana Lide**
+* **[David Matos](https://github.com/davidmatos)**
 * **[Prof. Miguel Correia](https://github.com/mpcorreia)**

@@ -10,7 +10,7 @@ Machine  learning  classifiers  are  trained  with  code samples  properly  iden
 
 ### Prerequisites
 
-MERLIN was designed in a Windows environment. To run the tool is necessary Python v3, Java v8 and [maven](https://maven.apache.org/).
+MERLIN was designed in a Windows environment. To run the tool is necessary  Java 1.8.0, Python 3.8.0 and [Maven 3.6.0](https://maven.apache.org/).
 
 ### Installing
 
@@ -49,19 +49,28 @@ mvn exec:java -Dexec.args="[filepath]"
 To generate Jimple code, you can use the following command:
 
 ```
-java -cp  soot.Main -cp . -allow-phantom-refs -pp -f J [nameOftheClassFile]
+java -cp sootclasses-trunk-jar-with-dependencies.jar soot.Main -cp . -allow-phantom-refs -pp -f J [nameOftheClassFile]
 ```
 
 To generate the CFGs, you can use the following command:
 ```
-java -cp  soot.Main -cp . -allow-phantom-refs -pp -dump-cfg ALL -f J [nameOftheClassFile]
+java -cp sootclasses-trunk-jar-with-dependencies.jar soot.Main -cp . -allow-phantom-refs -pp -dump-cfg ALL -f J [nameOftheClassFile]
 ```
 
 ## Run submodule CSGandAE 
 
+To execute this submodule is necessary to provide Jimple code and the CFGs of the file. This information should be inside a folder named with the filename, the jimple code should also be named with the filename, the methods should be name with their corresponding name and should be placed inside a directory also named with the filename (the start-script produces the right format automatically). To execute the submodule CSGandAE, you can use the following command: 
+
+```
+mvn exec:java -Dexec.args="-[flags]"
+```
+
+The available flags are the following:
 
 
 ## Authors
 
 * **[Alexandra Figueiredo](https://github.com/asgcfigueiredo)**
+* **[Tatjana Lide]**
+* **[David Matos](https://github.com/mpcorreia)**
 * **[Prof. Miguel Correia](https://github.com/mpcorreia)**

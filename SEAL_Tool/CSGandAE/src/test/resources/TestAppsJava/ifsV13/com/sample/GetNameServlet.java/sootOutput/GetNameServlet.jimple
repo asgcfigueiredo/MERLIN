@@ -1,0 +1,95 @@
+public class GetNameServlet extends javax.servlet.http.HttpServlet
+{
+
+    public void <init>()
+    {
+        GetNameServlet r0;
+
+        r0 := @this: GetNameServlet;
+
+        specialinvoke r0.<javax.servlet.http.HttpServlet: void <init>()>();
+
+        return;
+    }
+
+    protected void doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException
+    {
+        GetNameServlet r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.String r3, r17;
+        int i0, $i1;
+        javax.servlet.RequestDispatcher r6;
+        int[] $r8;
+        java.lang.StringBuilder $r10, $r11, $r12, $r15, $r16, r19, r20;
+        java.io.PrintStream $r13;
+        java.util.Random r18;
+        javax.servlet.ServletRequest r21;
+        javax.servlet.ServletResponse r22;
+
+        r0 := @this: GetNameServlet;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getParameter(java.lang.String)>("name");
+
+        r18 = new java.util.Random;
+
+        specialinvoke r18.<java.util.Random: void <init>()>();
+
+        i0 = virtualinvoke r18.<java.util.Random: int nextInt(int)>(2);
+
+        $r8 = newarray (int)[3];
+
+        $r8[0] = 1;
+
+        $r8[1] = 2;
+
+        $r8[2] = 3;
+
+        r19 = new java.lang.StringBuilder;
+
+        specialinvoke r19.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Hello ");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r3);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        r17 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $i1 = $r8[i0];
+
+        if $i1 != 2 goto label1;
+
+        $r13 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r13.<java.io.PrintStream: void println(java.lang.String)>("I don\'t know what is happening");
+
+        r20 = new java.lang.StringBuilder;
+
+        specialinvoke r20.<java.lang.StringBuilder: void <init>()>();
+
+        $r15 = virtualinvoke r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r17);
+
+        $r16 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("My secret password is ILIKEYOU ;)");
+
+        r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label1:
+        interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: void setAttribute(java.lang.String,java.lang.Object)>("quote", r17);
+
+        r6 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: javax.servlet.RequestDispatcher getRequestDispatcher(java.lang.String)>("result_name.jsp");
+
+        r21 = (javax.servlet.ServletRequest) r1;
+
+        r22 = (javax.servlet.ServletResponse) r2;
+
+        interfaceinvoke r6.<javax.servlet.RequestDispatcher: void forward(javax.servlet.ServletRequest,javax.servlet.ServletResponse)>(r21, r22);
+
+        return;
+    }
+}

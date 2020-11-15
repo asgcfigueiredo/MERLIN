@@ -1,0 +1,152 @@
+public class GetCommandServlet extends javax.servlet.http.HttpServlet
+{
+
+    public void <init>()
+    {
+        GetCommandServlet r0;
+
+        r0 := @this: GetCommandServlet;
+
+        specialinvoke r0.<javax.servlet.http.HttpServlet: void <init>()>();
+
+        return;
+    }
+
+    protected void doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException
+    {
+        GetCommandServlet r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.String r3, r4, $r16, $r20, r30;
+        java.lang.Process r5;
+        java.lang.StringBuilder $r9, $r10, $r11, $r14, $r15, $r26, $r27, $r28, r33, r34, r37;
+        java.lang.Runtime $r12;
+        java.io.InputStream $r19;
+        java.io.PrintStream $r21, $r22, $r23, $r24;
+        java.lang.InterruptedException $r29;
+        int i0;
+        javax.servlet.RequestDispatcher r32;
+        java.io.InputStreamReader r35;
+        java.io.BufferedReader r36;
+        javax.servlet.ServletRequest r38;
+        javax.servlet.ServletResponse r39;
+
+        r0 := @this: GetCommandServlet;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getParameter(java.lang.String)>("directory");
+
+        r33 = new java.lang.StringBuilder;
+
+        specialinvoke r33.<java.lang.StringBuilder: void <init>()>();
+
+        $r9 = virtualinvoke r33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("dir \"D:\\project\\exemplo\\");
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r3);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\"");
+
+        r4 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r12 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        r34 = new java.lang.StringBuilder;
+
+        specialinvoke r34.<java.lang.StringBuilder: void <init>()>();
+
+        $r14 = virtualinvoke r34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("cmd /c ");
+
+        $r15 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r4);
+
+        $r16 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r5 = virtualinvoke $r12.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r16);
+
+        r30 = "";
+
+        r36 = new java.io.BufferedReader;
+
+        r35 = new java.io.InputStreamReader;
+
+        $r19 = virtualinvoke r5.<java.lang.Process: java.io.InputStream getInputStream()>();
+
+        specialinvoke r35.<java.io.InputStreamReader: void <init>(java.io.InputStream)>($r19);
+
+        specialinvoke r36.<java.io.BufferedReader: void <init>(java.io.Reader)>(r35);
+
+     label1:
+        $r20 = virtualinvoke r36.<java.io.BufferedReader: java.lang.String readLine()>();
+
+        if $r20 == null goto label2;
+
+        r37 = new java.lang.StringBuilder;
+
+        specialinvoke r37.<java.lang.StringBuilder: void <init>()>();
+
+        $r26 = virtualinvoke r37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r30);
+
+        $r27 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r20);
+
+        $r28 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\n");
+
+        r30 = virtualinvoke $r28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label1;
+
+     label2:
+        i0 = 0;
+
+     label3:
+        i0 = virtualinvoke r5.<java.lang.Process: int waitFor()>();
+
+     label4:
+        goto label6;
+
+     label5:
+        $r29 := @caughtexception;
+
+        virtualinvoke $r29.<java.lang.InterruptedException: void printStackTrace()>();
+
+     label6:
+        if i0 != 0 goto label7;
+
+        $r23 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r23.<java.io.PrintStream: void println(java.lang.String)>("Success");
+
+        $r24 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r24.<java.io.PrintStream: void println(java.lang.String)>(r30);
+
+        interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: void setAttribute(java.lang.String,java.lang.Object)>("outputCmd", r30);
+
+        goto label8;
+
+     label7:
+        $r21 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r21.<java.io.PrintStream: void println(java.lang.String)>("This sucks");
+
+        $r22 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r22.<java.io.PrintStream: void println(java.lang.String)>(r30);
+
+        interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: void setAttribute(java.lang.String,java.lang.Object)>("outputCmd", "This sucks");
+
+     label8:
+        r32 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: javax.servlet.RequestDispatcher getRequestDispatcher(java.lang.String)>("getCommandOut.jsp");
+
+        r38 = (javax.servlet.ServletRequest) r1;
+
+        r39 = (javax.servlet.ServletResponse) r2;
+
+        interfaceinvoke r32.<javax.servlet.RequestDispatcher: void forward(javax.servlet.ServletRequest,javax.servlet.ServletResponse)>(r38, r39);
+
+        return;
+
+        catch java.lang.InterruptedException from label3 to label4 with label5;
+    }
+}

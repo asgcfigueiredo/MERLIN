@@ -1,0 +1,7 @@
+digraph "java.lang.String goodG2BSource()" {
+    label="java.lang.String goodG2BSource()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [style=filled,fillcolor=lightgray,label="return \"foo\"",];
+    "0"->"1";
+}

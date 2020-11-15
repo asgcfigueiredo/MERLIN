@@ -1,0 +1,11 @@
+digraph "void <clinit>()" {
+    label="void <clinit>()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_22a.badPublicStatic = 0",];
+    "1" [label="testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_22a.goodG2B1PublicStatic = 0",];
+    "0"->"1";
+    "2" [label="testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_22a.goodG2B2PublicStatic = 0",];
+    "1"->"2";
+    "3" [style=filled,fillcolor=lightgray,label="return",];
+    "2"->"3";
+}

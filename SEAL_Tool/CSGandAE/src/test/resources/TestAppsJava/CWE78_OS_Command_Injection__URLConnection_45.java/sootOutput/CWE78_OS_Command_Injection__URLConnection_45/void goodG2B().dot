@@ -1,0 +1,15 @@
+digraph "void goodG2B()" {
+    label="void goodG2B()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="r2 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0",];
+    "0"->"1";
+    "2" [label="r2.dataGoodG2B = \"foo\"",];
+    "1"->"2";
+    "3" [label="r3 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0",];
+    "2"->"3";
+    "4" [label="specialinvoke r3.goodG2BSink()",];
+    "3"->"4";
+    "5" [style=filled,fillcolor=lightgray,label="return",];
+    "4"->"5";
+}

@@ -1,0 +1,164 @@
+public class CWE78_OS_Command_Injection__getCookies_Servlet_31 extends testcasesupport.AbstractTestCaseServlet
+{
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__getCookies_Servlet_31 r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__getCookies_Servlet_31;
+
+        specialinvoke r0.<testcasesupport.AbstractTestCaseServlet: void <init>()>();
+
+        return;
+    }
+
+    public void bad(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getCookies_Servlet_31 r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.Process r4;
+        java.lang.String $r5, $r6, $r11, r13, r15, r16;
+        int $i0;
+        java.lang.Runtime $r7;
+        java.lang.StringBuilder $r8, $r9, $r10;
+        javax.servlet.http.Cookie $r12;
+        javax.servlet.http.Cookie[] r14;
+
+        r0 := @this: CWE78_OS_Command_Injection__getCookies_Servlet_31;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r13 = "";
+
+        r14 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: javax.servlet.http.Cookie[] getCookies()>();
+
+        if r14 == null goto label1;
+
+        $r12 = r14[0];
+
+        r13 = virtualinvoke $r12.<javax.servlet.http.Cookie: java.lang.String getValue()>();
+
+     label1:
+        r15 = r13;
+
+        $r5 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r6 = virtualinvoke $r5.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r6.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label2;
+
+        r16 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label3;
+
+     label2:
+        r16 = "/bin/ls ";
+
+     label3:
+        $r7 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<java.lang.StringBuilder: void <init>()>();
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r16);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r15);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r4 = virtualinvoke $r7.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r11);
+
+        virtualinvoke r4.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public void good(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getCookies_Servlet_31 r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getCookies_Servlet_31 r3;
+
+        r0 := @this: CWE78_OS_Command_Injection__getCookies_Servlet_31;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getCookies_Servlet_31) r0;
+
+        specialinvoke r3.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getCookies_Servlet_31: void goodG2B(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)>(r1, r2);
+
+        return;
+    }
+
+    private void goodG2B(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getCookies_Servlet_31 r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.Process r4;
+        java.lang.String $r5, $r6, $r11, r14;
+        int $i0;
+        java.lang.Runtime $r7;
+        java.lang.StringBuilder $r8, $r9, $r10;
+
+        r0 := @this: CWE78_OS_Command_Injection__getCookies_Servlet_31;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        $r5 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r6 = virtualinvoke $r5.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r6.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r14 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r14 = "/bin/ls ";
+
+     label2:
+        $r7 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r8 = new java.lang.StringBuilder;
+
+        specialinvoke $r8.<java.lang.StringBuilder: void <init>()>();
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r14);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r4 = virtualinvoke $r7.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r11);
+
+        virtualinvoke r4.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[]) throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException
+    {
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        staticinvoke <testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getCookies_Servlet_31: void mainFromParent(java.lang.String[])>(r0);
+
+        return;
+    }
+}

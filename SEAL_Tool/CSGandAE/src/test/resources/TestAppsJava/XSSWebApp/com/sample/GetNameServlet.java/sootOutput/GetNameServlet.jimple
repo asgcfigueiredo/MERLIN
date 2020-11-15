@@ -1,0 +1,54 @@
+public class GetNameServlet extends javax.servlet.http.HttpServlet
+{
+
+    public void <init>()
+    {
+        GetNameServlet r0;
+
+        r0 := @this: GetNameServlet;
+
+        specialinvoke r0.<javax.servlet.http.HttpServlet: void <init>()>();
+
+        return;
+    }
+
+    protected void doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException
+    {
+        GetNameServlet r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        javax.servlet.RequestDispatcher r3;
+        java.io.PrintWriter $r4;
+        java.lang.String r5, r6;
+        javax.servlet.ServletRequest r7;
+        javax.servlet.ServletResponse r8;
+
+        r0 := @this: GetNameServlet;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r5 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getParameter(java.lang.String)>("name");
+
+        r6 = staticinvoke <org.apache.commons.lang.StringEscapeUtils: java.lang.String escapeHtml(java.lang.String)>(r5);
+
+        interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: void setAttribute(java.lang.String,java.lang.Object)>("name", r6);
+
+        interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: void setAttribute(java.lang.String,java.lang.Object)>("var", "This should be a variable");
+
+        r3 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: javax.servlet.RequestDispatcher getRequestDispatcher(java.lang.String)>("result.jsp");
+
+        $r4 = interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: java.io.PrintWriter getWriter()>();
+
+        virtualinvoke $r4.<java.io.PrintWriter: void print(java.lang.String)>("This is just a test, because I suck at this");
+
+        r7 = (javax.servlet.ServletRequest) r1;
+
+        r8 = (javax.servlet.ServletResponse) r2;
+
+        interfaceinvoke r3.<javax.servlet.RequestDispatcher: void forward(javax.servlet.ServletRequest,javax.servlet.ServletResponse)>(r7, r8);
+
+        return;
+    }
+}

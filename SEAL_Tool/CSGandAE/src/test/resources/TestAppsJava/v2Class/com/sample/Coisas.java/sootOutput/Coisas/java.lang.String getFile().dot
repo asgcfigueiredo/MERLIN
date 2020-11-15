@@ -1,0 +1,11 @@
+digraph "java.lang.String getFile()" {
+    label="java.lang.String getFile()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="r2 = (com.sample.Coisas) r0",];
+    "0"->"1";
+    "2" [label="$r1 = r2.file",];
+    "1"->"2";
+    "3" [style=filled,fillcolor=lightgray,label="return $r1",];
+    "2"->"3";
+}

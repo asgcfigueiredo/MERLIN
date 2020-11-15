@@ -1,0 +1,23 @@
+digraph "void goodG2B()" {
+    label="void goodG2B()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="$r3 = new java.util.Vector",];
+    "0"->"1";
+    "2" [label="specialinvoke $r3.<init>(5)",];
+    "1"->"2";
+    "3" [label="$r3.add(0, \"foo\")",];
+    "2"->"3";
+    "4" [label="$r3.add(1, \"foo\")",];
+    "3"->"4";
+    "5" [label="$r3.add(2, \"foo\")",];
+    "4"->"5";
+    "6" [label="$r4 = new testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_72b",];
+    "5"->"6";
+    "7" [label="specialinvoke $r4.<init>()",];
+    "6"->"7";
+    "8" [label="$r4.goodG2BSink($r3)",];
+    "7"->"8";
+    "9" [style=filled,fillcolor=lightgray,label="return",];
+    "8"->"9";
+}

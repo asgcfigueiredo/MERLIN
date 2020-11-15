@@ -1,0 +1,147 @@
+[
+	{
+		"vulnerability": "SQL Injection",
+		"sources": [
+			"play.mvc.Http.RequestHeader.getQueryString", 
+			"play.mvc.Http.RequestHeader.queryString", 
+			"play.mvc.Http.RequestHeader.header", 
+			"play.mvc.Http.RequestHeader.getHeaders",
+			"play.mvc.Http.RequestHeader.cookies.get",
+			"play.mvc.Http.RequestHeader.cookies",
+			"play.mvc.Http.RequestHeader.cookie",
+			"play.mvc.Http.RequestHeader.getCookie",
+			"play.mvc.Http.Cookies.getCookie",
+			"play.libs.ws.WSRequest.getHeaders",
+			"play.api.data.Form.bindFromRequest",
+			"play.data.Form.bindFromRequest",
+			"play.data.DynamicForm.bindFromRequest",
+			"play.api.data.Form.bindFromRequestData",
+			"play.data.Form.bindFromRequestData",
+			"play.data.DynamicForm.bindFromRequestData"	
+		],
+		"sanitizers": ["org.apache.commons.lang.StringEscapeUtils.escapeSql"], 
+  		"sinks": ["java.sql.Statement.execute", "java.sql.Statement.executeQuery", "java.sql.Statement.executeUpdate", "java.sql.Statement.addBatch",
+  				  "java.sql.Connection.prepareStatement"]
+  	},
+
+	{
+		"vulnerability":"XSS",
+		"sources": [
+			"play.mvc.Http.RequestHeader.getQueryString", 
+			"play.mvc.Http.RequestHeader.queryString", 
+			"play.mvc.Http.RequestHeader.header", 
+			"play.mvc.Http.RequestHeader.getHeaders",
+			"play.mvc.Http.RequestHeader.cookies.get",
+			"play.mvc.Http.RequestHeader.cookies",
+			"play.mvc.Http.RequestHeader.cookie",
+			"play.mvc.Http.RequestHeader.getCookie",
+			"play.mvc.Http.Cookies.getCookie",
+			"play.libs.ws.WSRequest.getHeaders",
+			"play.api.data.Form.bindFromRequest",
+			"play.data.Form.bindFromRequest",
+			"play.data.DynamicForm.bindFromRequest",
+			"play.api.data.Form.bindFromRequestData",
+			"play.data.Form.bindFromRequestData",
+			"play.data.DynamicForm.bindFromRequestData"
+			],
+		"sanitizers": ["scala.concurrent.future.escapeInTemplates"],
+  		"sinks": ["play.twirl.api.Html.Html", "javax.swing.text.html.Html"]
+  	},
+	
+	{
+		"vulnerability": "RFI/LFI",
+		"sources": [
+			"play.mvc.Http.RequestHeader.getQueryString", 
+			"play.mvc.Http.RequestHeader.queryString", 
+			"play.mvc.Http.RequestHeader.header", 
+			"play.mvc.Http.RequestHeader.getHeaders",
+			"play.mvc.Http.RequestHeader.cookies.get",
+			"play.mvc.Http.RequestHeader.cookies",
+			"play.mvc.Http.RequestHeader.cookie",
+			"play.mvc.Http.RequestHeader.getCookie",
+			"play.mvc.Http.Cookies.getCookie",
+			"play.libs.ws.WSRequest.getHeaders",
+			"play.api.data.Form.bindFromRequest",
+			"play.data.Form.bindFromRequest",
+			"play.data.DynamicForm.bindFromRequest",
+			"play.api.data.Form.bindFromRequestData",
+			"play.data.Form.bindFromRequestData",
+			"play.data.DynamicForm.bindFromRequestData"
+		],
+		"sanitizers": ["scala.concurrent.future.escapeInTemplates"],
+		"sinks": ["org.apache.taglibs.standard.tag.rt.core.ImportTag.setUrl", "javax.servlet.http.HttpServletResponse.sendRedirect"]
+	},
+
+	{
+		"vulnerability": "DT/LFI/SCD",
+		"sources": [
+			"play.mvc.Http.RequestHeader.getQueryString", 
+			"play.mvc.Http.RequestHeader.queryString", 
+			"play.mvc.Http.RequestHeader.header", 
+			"play.mvc.Http.RequestHeader.getHeaders",
+			"play.mvc.Http.RequestHeader.cookies.get",
+			"play.mvc.Http.RequestHeader.cookies",
+			"play.mvc.Http.RequestHeader.cookie",
+			"play.mvc.Http.RequestHeader.getCookie",
+			"play.mvc.Http.Cookies.getCookie",
+			"play.libs.ws.WSRequest.getHeaders",
+			"play.api.data.Form.bindFromRequest",
+			"play.data.Form.bindFromRequest",
+			"play.data.DynamicForm.bindFromRequest",
+			"play.api.data.Form.bindFromRequestData",
+			"play.data.Form.bindFromRequestData",
+			"play.data.DynamicForm.bindFromRequestData"
+		],
+		"sanitizers": ["scala.concurrent.future.escapeInTemplates"],
+		"sinks": ["java.io.FileReader", "java.io.File"]
+	},
+
+	{
+		"vulnerability": "LFI/SCD",
+		"sources": [
+			"play.mvc.Http.RequestHeader.getQueryString", 
+			"play.mvc.Http.RequestHeader.queryString", 
+			"play.mvc.Http.RequestHeader.header", 
+			"play.mvc.Http.RequestHeader.getHeaders",
+			"play.mvc.Http.RequestHeader.cookies.get",
+			"play.mvc.Http.RequestHeader.cookies",
+			"play.mvc.Http.RequestHeader.cookie",
+			"play.mvc.Http.RequestHeader.getCookie",
+			"play.mvc.Http.Cookies.getCookie",
+			"play.libs.ws.WSRequest.getHeaders",
+			"play.api.data.Form.bindFromRequest",
+			"play.data.Form.bindFromRequest",
+			"play.data.DynamicForm.bindFromRequest",
+			"play.api.data.Form.bindFromRequestData",
+			"play.data.Form.bindFromRequestData",
+			"play.data.DynamicForm.bindFromRequestData"
+		],
+		"sanitizers": ["scala.concurrent.future.escapeInTemplates"],
+		"sinks": ["org.apache.jasper.runtime.JspRuntimeLibrary.include", "org.apache.taglibs.standard.tag.rt.core.ImportTag.setUrl", "java.io.FileReader.read",
+			"java.io.File", "java.util.Scanner.next", "java.nio.file.Files.readAllLines", "java.nio.file.Files.readAllBytes",	
+			"java.nio.file.Files.readAllBytes", "java.io.FileInputStream.read", "java.io.FileInputStream", "org.apache.commons.io.IOUtils.toString"]},
+
+	{
+		"vulnerability": "OSCI",
+		"sources": [
+			"play.mvc.Http.RequestHeader.getQueryString", 
+			"play.mvc.Http.RequestHeader.queryString", 
+			"play.mvc.Http.RequestHeader.header", 
+			"play.mvc.Http.RequestHeader.getHeaders",
+			"play.mvc.Http.RequestHeader.cookies.get",
+			"play.mvc.Http.RequestHeader.cookies",
+			"play.mvc.Http.RequestHeader.cookie",
+			"play.mvc.Http.RequestHeader.getCookie",
+			"play.mvc.Http.Cookies.getCookie",
+			"play.libs.ws.WSRequest.getHeaders",
+			"play.api.data.Form.bindFromRequest",
+			"play.data.Form.bindFromRequest",
+			"play.data.DynamicForm.bindFromRequest",
+			"play.api.data.Form.bindFromRequestData",
+			"play.data.Form.bindFromRequestData",
+			"play.data.DynamicForm.bindFromRequestData"
+		],
+		"sanitizers": ["scala.concurrent.future.escapeInTemplates"],
+		"sinks": ["java.lang.ProcessBuilder.command", "java.lang.Runtime.exec"]
+	}
+]

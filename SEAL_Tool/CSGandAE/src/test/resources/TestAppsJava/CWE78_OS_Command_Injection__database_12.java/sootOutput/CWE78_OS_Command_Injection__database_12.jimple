@@ -1,0 +1,361 @@
+public class CWE78_OS_Command_Injection__database_12 extends testcasesupport.AbstractTestCase
+{
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__database_12 r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__database_12;
+
+        specialinvoke r0.<testcasesupport.AbstractTestCase: void <init>()>();
+
+        return;
+    }
+
+    public void bad() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__database_12 r0;
+        boolean $z0;
+        java.lang.String $r2, $r3, $r8, r40, r54;
+        int $i0;
+        java.lang.Runtime $r4;
+        java.lang.StringBuilder $r5, $r6, $r7;
+        java.sql.SQLException $r9, $r12, $r16, $r19, $r22, $r25, $r28, $r31, $r34, $r37;
+        java.util.logging.Level $r10, $r13, $r17, $r20, $r23, $r26, $r29, $r32, $r35, $r38;
+        java.util.logging.Logger $r11, $r14, $r18, $r21, $r24, $r27, $r30, $r33, $r36, $r39;
+        java.lang.Throwable $r15;
+        java.sql.Connection r41;
+        java.sql.PreparedStatement r42;
+        java.sql.ResultSet r43;
+        java.lang.Process r55;
+
+        r0 := @this: CWE78_OS_Command_Injection__database_12;
+
+        $z0 = staticinvoke <testcasesupport.IO: boolean staticReturnsTrueOrFalse()>();
+
+        if $z0 == 0 goto label33;
+
+        r40 = "";
+
+        r41 = null;
+
+        r42 = null;
+
+        r43 = null;
+
+     label01:
+        r41 = staticinvoke <testcasesupport.IO: java.sql.Connection getDBConnection()>();
+
+        r42 = interfaceinvoke r41.<java.sql.Connection: java.sql.PreparedStatement prepareStatement(java.lang.String)>("select name from users where id=0");
+
+        r43 = interfaceinvoke r42.<java.sql.PreparedStatement: java.sql.ResultSet executeQuery()>();
+
+        r40 = interfaceinvoke r43.<java.sql.ResultSet: java.lang.String getString(int)>(1);
+
+     label02:
+        if r43 == null goto label03;
+
+        interfaceinvoke r43.<java.sql.ResultSet: void close()>();
+
+     label03:
+        goto label05;
+
+     label04:
+        $r34 := @caughtexception;
+
+        $r36 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r35 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r36.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r35, "Error closing ResultSet", $r34);
+
+     label05:
+        if r42 == null goto label06;
+
+        interfaceinvoke r42.<java.sql.PreparedStatement: void close()>();
+
+     label06:
+        goto label08;
+
+     label07:
+        $r28 := @caughtexception;
+
+        $r30 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r29 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r30.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r29, "Error closing PreparedStatement", $r28);
+
+     label08:
+        if r41 == null goto label09;
+
+        interfaceinvoke r41.<java.sql.Connection: void close()>();
+
+     label09:
+        goto label32;
+
+     label10:
+        $r37 := @caughtexception;
+
+        $r39 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r38 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r39.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r38, "Error closing Connection", $r37);
+
+        goto label32;
+
+     label11:
+        $r16 := @caughtexception;
+
+        $r18 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r17 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r18.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r17, "Error with SQL statement", $r16);
+
+     label12:
+        if r43 == null goto label13;
+
+        interfaceinvoke r43.<java.sql.ResultSet: void close()>();
+
+     label13:
+        goto label15;
+
+     label14:
+        $r12 := @caughtexception;
+
+        $r14 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r13 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r14.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r13, "Error closing ResultSet", $r12);
+
+     label15:
+        if r42 == null goto label16;
+
+        interfaceinvoke r42.<java.sql.PreparedStatement: void close()>();
+
+     label16:
+        goto label18;
+
+     label17:
+        $r31 := @caughtexception;
+
+        $r33 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r32 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r33.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r32, "Error closing PreparedStatement", $r31);
+
+     label18:
+        if r41 == null goto label19;
+
+        interfaceinvoke r41.<java.sql.Connection: void close()>();
+
+     label19:
+        goto label32;
+
+     label20:
+        $r19 := @caughtexception;
+
+        $r21 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r20 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r21.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r20, "Error closing Connection", $r19);
+
+        goto label32;
+
+     label21:
+        $r15 := @caughtexception;
+
+     label22:
+        if r43 == null goto label23;
+
+        interfaceinvoke r43.<java.sql.ResultSet: void close()>();
+
+     label23:
+        goto label25;
+
+     label24:
+        $r25 := @caughtexception;
+
+        $r27 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r26 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r27.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r26, "Error closing ResultSet", $r25);
+
+     label25:
+        if r42 == null goto label26;
+
+        interfaceinvoke r42.<java.sql.PreparedStatement: void close()>();
+
+     label26:
+        goto label28;
+
+     label27:
+        $r9 := @caughtexception;
+
+        $r11 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r10 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r11.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r10, "Error closing PreparedStatement", $r9);
+
+     label28:
+        if r41 == null goto label29;
+
+        interfaceinvoke r41.<java.sql.Connection: void close()>();
+
+     label29:
+        goto label31;
+
+     label30:
+        $r22 := @caughtexception;
+
+        $r24 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r23 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r24.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r23, "Error closing Connection", $r22);
+
+     label31:
+        throw $r15;
+
+     label32:
+        goto label34;
+
+     label33:
+        r40 = "foo";
+
+     label34:
+        $r2 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r3 = virtualinvoke $r2.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label35;
+
+        r54 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label36;
+
+     label35:
+        r54 = "/bin/ls ";
+
+     label36:
+        $r4 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r54);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r40);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r55 = virtualinvoke $r4.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r8);
+
+        virtualinvoke r55.<java.lang.Process: int waitFor()>();
+
+        return;
+
+        catch java.sql.SQLException from label02 to label03 with label04;
+        catch java.sql.SQLException from label05 to label06 with label07;
+        catch java.sql.SQLException from label08 to label09 with label10;
+        catch java.sql.SQLException from label01 to label02 with label11;
+        catch java.sql.SQLException from label12 to label13 with label14;
+        catch java.sql.SQLException from label15 to label16 with label17;
+        catch java.sql.SQLException from label18 to label19 with label20;
+        catch java.lang.Throwable from label01 to label02 with label21;
+        catch java.lang.Throwable from label11 to label12 with label21;
+        catch java.sql.SQLException from label22 to label23 with label24;
+        catch java.sql.SQLException from label25 to label26 with label27;
+        catch java.sql.SQLException from label28 to label29 with label30;
+        catch java.lang.Throwable from label21 to label22 with label21;
+    }
+
+    private void goodG2B() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__database_12 r0;
+        java.lang.Process r1;
+        boolean $z0;
+        java.lang.String $r2, $r3, $r8, r10;
+        int $i0;
+        java.lang.Runtime $r4;
+        java.lang.StringBuilder $r5, $r6, $r7;
+
+        r0 := @this: CWE78_OS_Command_Injection__database_12;
+
+        $z0 = staticinvoke <testcasesupport.IO: boolean staticReturnsTrueOrFalse()>();
+
+        if $z0 == 0 goto label1;
+
+        goto label1;
+
+     label1:
+        $r2 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r3 = virtualinvoke $r2.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label2;
+
+        r10 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label3;
+
+     label2:
+        r10 = "/bin/ls ";
+
+     label3:
+        $r4 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r5 = new java.lang.StringBuilder;
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>()>();
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r10);
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r1 = virtualinvoke $r4.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r8);
+
+        virtualinvoke r1.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public void good() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__database_12 r0;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__database_12 r1;
+
+        r0 := @this: CWE78_OS_Command_Injection__database_12;
+
+        r1 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__database_12) r0;
+
+        specialinvoke r1.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__database_12: void goodG2B()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[]) throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException
+    {
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        staticinvoke <testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__database_12: void mainFromParent(java.lang.String[])>(r0);
+
+        return;
+    }
+}

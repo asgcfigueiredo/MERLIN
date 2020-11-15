@@ -1,0 +1,29 @@
+digraph "void doPost(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)" {
+    label="void doPost(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="r1 := @parameter0",];
+    "0"->"1";
+    "2" [label="r2 := @parameter1",];
+    "1"->"2";
+    "3" [label="r1.getParameter(\"name\")",];
+    "2"->"3";
+    "4" [label="r8 = new com.sample.Coisas",];
+    "3"->"4";
+    "5" [label="specialinvoke r8.<init>()",];
+    "4"->"5";
+    "6" [label="r5 = r8.getGreetings()",];
+    "5"->"6";
+    "7" [label="r1.setAttribute(\"quote\", r5)",];
+    "6"->"7";
+    "8" [label="r6 = r1.getRequestDispatcher(\"resultName.jsp\")",];
+    "7"->"8";
+    "9" [label="r9 = (javax.servlet.ServletRequest) r1",];
+    "8"->"9";
+    "10" [label="r10 = (javax.servlet.ServletResponse) r2",];
+    "9"->"10";
+    "11" [label="r6.forward(r9, r10)",];
+    "10"->"11";
+    "12" [style=filled,fillcolor=lightgray,label="return",];
+    "11"->"12";
+}

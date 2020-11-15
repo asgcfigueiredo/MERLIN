@@ -1,0 +1,29 @@
+digraph "void <clinit>()" {
+    label="void <clinit>()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="$r0 = javax.servlet.jsp.JspFactory.getDefaultFactory()",];
+    "1" [label="org.apache.jsp.resultNumber_jsp._jspxFactory = $r0",];
+    "0"->"1";
+    "2" [label="$r1 = new java.util.HashSet",];
+    "1"->"2";
+    "3" [label="specialinvoke $r1.<init>()",];
+    "2"->"3";
+    "4" [label="org.apache.jsp.resultNumber_jsp._jspx_imports_packages = $r1",];
+    "3"->"4";
+    "5" [label="$r2 = org.apache.jsp.resultNumber_jsp._jspx_imports_packages",];
+    "4"->"5";
+    "6" [label="$r2.add(\"javax.servlet\")",];
+    "5"->"6";
+    "7" [label="$r3 = org.apache.jsp.resultNumber_jsp._jspx_imports_packages",];
+    "6"->"7";
+    "8" [label="$r3.add(\"javax.servlet.http\")",];
+    "7"->"8";
+    "9" [label="$r4 = org.apache.jsp.resultNumber_jsp._jspx_imports_packages",];
+    "8"->"9";
+    "10" [label="$r4.add(\"javax.servlet.jsp\")",];
+    "9"->"10";
+    "11" [label="org.apache.jsp.resultNumber_jsp._jspx_imports_classes = null",];
+    "10"->"11";
+    "12" [style=filled,fillcolor=lightgray,label="return",];
+    "11"->"12";
+}

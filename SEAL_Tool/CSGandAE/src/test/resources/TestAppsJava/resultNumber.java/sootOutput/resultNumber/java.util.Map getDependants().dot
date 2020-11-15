@@ -1,0 +1,9 @@
+digraph "java.util.Map getDependants()" {
+    label="java.util.Map getDependants()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="$r1 = org.apache.jsp.resultNumber_jsp._jspx_dependants",];
+    "0"->"1";
+    "2" [style=filled,fillcolor=lightgray,label="return $r1",];
+    "1"->"2";
+}

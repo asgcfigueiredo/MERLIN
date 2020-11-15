@@ -1,0 +1,85 @@
+[
+	{
+		"vulnerability": "SQL Injection",
+		"sources": ["javax.servlet.http.HttpServletRequest.getParameter", "javax.servlet.http.HttpServletRequest.getParameterMap", 
+				"javax.servlet.http.HttpServletRequest.getParameterNames", "javax.servlet.http.HttpServletRequest.getParameterValues", 
+				"javax.servlet.http.HttpServletRequest.getCookies", "javax.servlet.http.HttpServletRequest.getHeader", 
+				"javax.servlet.http.HttpServletRequest.getHeaderNames", "javax.servlet.http.HttpServletRequest.getHeaders", 
+				"javax.servlet.http.HttpServletRequest.getQueryString", "java.sql.ResultSet.getString", "java.io.BufferedReader.readLine",
+				"java.util.Properties.getProperty", "java.net.URLConnection.getInputStream", "java.lang.System.getProperty"],
+		"sanitizers": ["org.apache.commons.lang.StringEscapeUtils.escapeSql"], 
+  		"sinks": ["java.sql.Statement.execute", "java.sql.Statement.executeQuery", "java.sql.Statement.executeUpdate", "java.sql.Statement.addBatch",
+  				  "java.sql.Connection.prepareStatement"]
+  	},
+
+	{
+		"vulnerability":"XSS",
+		"sources": ["javax.servlet.http.HttpServletRequest.getParameter", "javax.servlet.http.HttpServletRequest.getParameterMap", 
+			"javax.servlet.http.HttpServletRequest.getParameterNames", "javax.servlet.http.HttpServletRequest.getParameterValues", 
+			"javax.servlet.http.HttpServletRequest.getCookies", "javax.servlet.http.HttpServletRequest.getHeader", 
+			"javax.servlet.http.HttpServletRequest.getHeaderNames", "javax.servlet.http.HttpServletRequest.getHeaders", 
+			"javax.servlet.http.HttpServletRequest.getQueryString", "java.net.Socket.getInputStream", "java.sql.ResultSet.getString",
+			"java.io.BufferedReader.readLine", "java.util.Properties.getProperty", "java.net.URLConnection.getInputStream",
+			"java.lang.System.getProperty"],
+		"sanitizers": ["org.apache.commons.lang3.StringEscapeUtils.escapeHtml3", "org.apache.commons.lang3.StringEscapeUtils.escapeHtml4", "org.jsoup.Jsoup.clean",
+				   "org.jsoup.nodes.Document.text", "org.apache.commons.lang.StringEscapeUtils.escapeHtml", "org.jsoup.safety.Cleaner.clean"],
+  		"sinks": ["javax.servlet.jsp.JspWriter.println", "javax.servlet.jsp.JspWriter.print", "org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate",
+  				  "java.io.PrintWriter.println", "java.io.PrintWriter.print", "java.io.PrintWriter.printf", "javax.servlet.http.HttpServletResponse.sendError"]
+  	},
+	
+	{
+		"vulnerability": "RFI/LFI",
+		"sources": ["javax.servlet.http.HttpServletRequest.getParameter", "javax.servlet.http.HttpServletRequest.getParameterMap", 
+			"javax.servlet.http.HttpServletRequest.getParameterNames", "javax.servlet.http.HttpServletRequest.getParameterValues", 
+			"javax.servlet.http.HttpServletRequest.getCookies", "javax.servlet.http.HttpServletRequest.getHeader", 
+			"javax.servlet.http.HttpServletRequest.getHeaderNames", "javax.servlet.http.HttpServletRequest.getHeaders", 
+			"javax.servlet.http.HttpServletRequest.getQueryString", "javax.servlet.http.HttpServletRequest.getPart", 
+			"javax.servlet.http.HttpServletRequest.getParts", "java.net.Socket.getInputStream", "java.sql.ResultSet.getString",
+			"java.io.BufferedReader.readLine", "java.util.Properties.getProperty", "java.net.URLConnection.getInputStream",
+			"java.lang.System.getProperty"],
+		"sanitizers": [],
+		"sinks": ["org.apache.taglibs.standard.tag.rt.core.ImportTag.setUrl", "javax.servlet.http.HttpServletResponse.sendRedirect"]
+	},
+
+	{
+		"vulnerability": "DT/LFI/SCD",
+		"sources": ["javax.servlet.http.HttpServletRequest.getParameter", "javax.servlet.http.HttpServletRequest.getParameterMap", 
+			"javax.servlet.http.HttpServletRequest.getParameterNames", "javax.servlet.http.HttpServletRequest.getParameterValues", 
+			"javax.servlet.http.HttpServletRequest.getCookies", "javax.servlet.http.HttpServletRequest.getHeader", 
+			"javax.servlet.http.HttpServletRequest.getHeaderNames", "javax.servlet.http.HttpServletRequest.getHeaders", 
+			"javax.servlet.http.HttpServletRequest.getQueryString", "javax.servlet.http.HttpServletRequest.getPart", 
+			"javax.servlet.http.HttpServletRequest.getParts", "java.net.Socket.getInputStream", "java.sql.ResultSet.getString",
+			"java.io.BufferedReader.readLine", "java.util.Properties.getProperty", "java.net.URLConnection.getInputStream",
+			"java.lang.System.getProperty"],
+		"sanitizers": [],
+		"sinks": ["java.io.FileReader", "java.io.File"]
+	},
+
+	{
+		"vulnerability": "LFI/SCD",
+		"sources": ["javax.servlet.http.HttpServletRequest.getParameter", "javax.servlet.http.HttpServletRequest.getParameterMap", 
+			"javax.servlet.http.HttpServletRequest.getParameterNames", "javax.servlet.http.HttpServletRequest.getParameterValues", 
+			"javax.servlet.http.HttpServletRequest.getCookies", "javax.servlet.http.HttpServletRequest.getHeader", 
+			"javax.servlet.http.HttpServletRequest.getHeaderNames", "javax.servlet.http.HttpServletRequest.getHeaders", 
+			"javax.servlet.http.HttpServletRequest.getQueryString", "javax.servlet.http.HttpServletRequest.getPart", 
+			"javax.servlet.http.HttpServletRequest.getParts", "java.net.Socket.getInputStream", "java.sql.ResultSet.getString",
+			"java.io.BufferedReader.readLine", "java.util.Properties.getProperty", "java.net.URLConnection.getInputStream",
+			"java.lang.System.getProperty"],
+		"sanitizers": [],
+		"sinks": ["org.apache.jasper.runtime.JspRuntimeLibrary.include", "org.apache.taglibs.standard.tag.rt.core.ImportTag.setUrl", "java.io.FileReader.read",
+			"java.io.File", "java.util.Scanner.next", "java.nio.file.Files.readAllLines", "java.nio.file.Files.readAllBytes",	
+			"java.nio.file.Files.readAllBytes", "java.io.FileInputStream.read", "java.io.FileInputStream", "org.apache.commons.io.IOUtils.toString"]},
+
+	{
+		"vulnerability": "OSCI",
+		"sources": ["javax.servlet.http.HttpServletRequest.getParameter", "javax.servlet.http.HttpServletRequest.getParameterMap", 
+			"javax.servlet.http.HttpServletRequest.getParameterNames", "javax.servlet.http.HttpServletRequest.getParameterValues", 
+			"javax.servlet.http.HttpServletRequest.getCookies", "javax.servlet.http.HttpServletRequest.getHeader", 
+			"javax.servlet.http.HttpServletRequest.getHeaderNames", "javax.servlet.http.HttpServletRequest.getHeaders", 
+			"javax.servlet.http.HttpServletRequest.getQueryString", "java.net.Socket.getInputStream", "java.sql.ResultSet.getString", 
+			"java.io.BufferedReader.readLine", "java.util.Properties.getProperty", "java.net.URLConnection.getInputStream",
+			"java.lang.System.getProperty"],
+		"sanitizers": [],
+		"sinks": ["java.lang.ProcessBuilder.command", "java.lang.Runtime.exec"]
+	}
+]

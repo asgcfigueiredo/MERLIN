@@ -1,0 +1,52 @@
+public class CWE78_OS_Command_Injection__connect_tcp_53c extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__connect_tcp_53c r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_53c;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void badSink(java.lang.String) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__connect_tcp_53c r0;
+        java.lang.String r1;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53d $r2;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_53c;
+
+        r1 := @parameter0: java.lang.String;
+
+        $r2 = new testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53d;
+
+        specialinvoke $r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53d: void <init>()>();
+
+        virtualinvoke $r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53d: void badSink(java.lang.String)>(r1);
+
+        return;
+    }
+
+    public void goodG2BSink(java.lang.String) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__connect_tcp_53c r0;
+        java.lang.String r1;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53d $r2;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_53c;
+
+        r1 := @parameter0: java.lang.String;
+
+        $r2 = new testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53d;
+
+        specialinvoke $r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53d: void <init>()>();
+
+        virtualinvoke $r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53d: void goodG2BSink(java.lang.String)>(r1);
+
+        return;
+    }
+}

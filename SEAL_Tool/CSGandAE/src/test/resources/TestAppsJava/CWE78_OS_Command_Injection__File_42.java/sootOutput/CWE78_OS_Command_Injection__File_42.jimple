@@ -1,0 +1,388 @@
+public class CWE78_OS_Command_Injection__File_42 extends testcasesupport.AbstractTestCase
+{
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__File_42 r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__File_42;
+
+        specialinvoke r0.<testcasesupport.AbstractTestCase: void <init>()>();
+
+        return;
+    }
+
+    private java.lang.String badSource() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__File_42 r0;
+        java.io.File $r3;
+        java.io.FileInputStream $r4, r39;
+        java.io.InputStreamReader $r5, r40;
+        java.io.BufferedReader $r6, r41;
+        java.io.IOException $r7, $r10, $r13, $r16, $r19, $r22, $r26, $r29, $r32, $r35;
+        java.util.logging.Level $r8, $r11, $r14, $r17, $r20, $r23, $r27, $r30, $r33, $r36;
+        java.util.logging.Logger $r9, $r12, $r15, $r18, $r21, $r24, $r28, $r31, $r34, $r37;
+        java.lang.Throwable $r25;
+        java.lang.String r38;
+
+        r0 := @this: CWE78_OS_Command_Injection__File_42;
+
+        r38 = "";
+
+        $r3 = new java.io.File;
+
+        specialinvoke $r3.<java.io.File: void <init>(java.lang.String)>("C:\\data.txt");
+
+        r39 = null;
+
+        r40 = null;
+
+        r41 = null;
+
+     label01:
+        $r4 = new java.io.FileInputStream;
+
+        specialinvoke $r4.<java.io.FileInputStream: void <init>(java.io.File)>($r3);
+
+        r39 = $r4;
+
+        $r5 = new java.io.InputStreamReader;
+
+        specialinvoke $r5.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.lang.String)>($r4, "UTF-8");
+
+        r40 = $r5;
+
+        $r6 = new java.io.BufferedReader;
+
+        specialinvoke $r6.<java.io.BufferedReader: void <init>(java.io.Reader)>($r5);
+
+        r41 = $r6;
+
+        r38 = virtualinvoke $r6.<java.io.BufferedReader: java.lang.String readLine()>();
+
+     label02:
+        if $r6 == null goto label03;
+
+        virtualinvoke $r6.<java.io.BufferedReader: void close()>();
+
+     label03:
+        goto label05;
+
+     label04:
+        $r7 := @caughtexception;
+
+        $r9 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r8 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r9.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r8, "Error closing BufferedReader", $r7);
+
+     label05:
+        if $r5 == null goto label06;
+
+        virtualinvoke $r5.<java.io.InputStreamReader: void close()>();
+
+     label06:
+        goto label08;
+
+     label07:
+        $r16 := @caughtexception;
+
+        $r18 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r17 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r18.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r17, "Error closing InputStreamReader", $r16);
+
+     label08:
+        if $r4 == null goto label09;
+
+        virtualinvoke $r4.<java.io.FileInputStream: void close()>();
+
+     label09:
+        goto label32;
+
+     label10:
+        $r35 := @caughtexception;
+
+        $r37 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r36 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r37.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r36, "Error closing FileInputStream", $r35);
+
+        goto label32;
+
+     label11:
+        $r10 := @caughtexception;
+
+        $r12 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r11 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r12.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r11, "Error with stream reading", $r10);
+
+     label12:
+        if r41 == null goto label13;
+
+        virtualinvoke r41.<java.io.BufferedReader: void close()>();
+
+     label13:
+        goto label15;
+
+     label14:
+        $r13 := @caughtexception;
+
+        $r15 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r14 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r15.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r14, "Error closing BufferedReader", $r13);
+
+     label15:
+        if r40 == null goto label16;
+
+        virtualinvoke r40.<java.io.InputStreamReader: void close()>();
+
+     label16:
+        goto label18;
+
+     label17:
+        $r26 := @caughtexception;
+
+        $r28 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r27 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r28.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r27, "Error closing InputStreamReader", $r26);
+
+     label18:
+        if r39 == null goto label19;
+
+        virtualinvoke r39.<java.io.FileInputStream: void close()>();
+
+     label19:
+        goto label32;
+
+     label20:
+        $r29 := @caughtexception;
+
+        $r31 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r30 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r31.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r30, "Error closing FileInputStream", $r29);
+
+        goto label32;
+
+     label21:
+        $r25 := @caughtexception;
+
+     label22:
+        if r41 == null goto label23;
+
+        virtualinvoke r41.<java.io.BufferedReader: void close()>();
+
+     label23:
+        goto label25;
+
+     label24:
+        $r32 := @caughtexception;
+
+        $r34 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r33 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r34.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r33, "Error closing BufferedReader", $r32);
+
+     label25:
+        if r40 == null goto label26;
+
+        virtualinvoke r40.<java.io.InputStreamReader: void close()>();
+
+     label26:
+        goto label28;
+
+     label27:
+        $r19 := @caughtexception;
+
+        $r21 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r20 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r21.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r20, "Error closing InputStreamReader", $r19);
+
+     label28:
+        if r39 == null goto label29;
+
+        virtualinvoke r39.<java.io.FileInputStream: void close()>();
+
+     label29:
+        goto label31;
+
+     label30:
+        $r22 := @caughtexception;
+
+        $r24 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r23 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r24.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r23, "Error closing FileInputStream", $r22);
+
+     label31:
+        throw $r25;
+
+     label32:
+        return r38;
+
+        catch java.io.IOException from label02 to label03 with label04;
+        catch java.io.IOException from label05 to label06 with label07;
+        catch java.io.IOException from label08 to label09 with label10;
+        catch java.io.IOException from label01 to label02 with label11;
+        catch java.io.IOException from label12 to label13 with label14;
+        catch java.io.IOException from label15 to label16 with label17;
+        catch java.io.IOException from label18 to label19 with label20;
+        catch java.lang.Throwable from label01 to label02 with label21;
+        catch java.lang.Throwable from label11 to label12 with label21;
+        catch java.io.IOException from label22 to label23 with label24;
+        catch java.io.IOException from label25 to label26 with label27;
+        catch java.io.IOException from label28 to label29 with label30;
+        catch java.lang.Throwable from label21 to label22 with label21;
+    }
+
+    public void bad() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__File_42 r0;
+        java.lang.String r1, $r3, $r4, $r9, r10;
+        java.lang.Process r2;
+        int $i0;
+        java.lang.Runtime $r5;
+        java.lang.StringBuilder $r7, $r8, r11;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42 r12;
+
+        r0 := @this: CWE78_OS_Command_Injection__File_42;
+
+        r12 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42) r0;
+
+        r1 = specialinvoke r12.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42: java.lang.String badSource()>();
+
+        $r3 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r4 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r10 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r10 = "/bin/ls ";
+
+     label2:
+        $r5 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        r11 = new java.lang.StringBuilder;
+
+        specialinvoke r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r10);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r2 = virtualinvoke $r5.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r9);
+
+        virtualinvoke r2.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    private java.lang.String goodG2BSource() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__File_42 r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__File_42;
+
+        return "foo";
+    }
+
+    private void goodG2B() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__File_42 r0;
+        java.lang.String r1, $r3, $r4, $r9, r10;
+        java.lang.Process r2;
+        int $i0;
+        java.lang.Runtime $r5;
+        java.lang.StringBuilder $r7, $r8, r11;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42 r12;
+
+        r0 := @this: CWE78_OS_Command_Injection__File_42;
+
+        r12 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42) r0;
+
+        r1 = specialinvoke r12.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42: java.lang.String goodG2BSource()>();
+
+        $r3 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r4 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r10 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r10 = "/bin/ls ";
+
+     label2:
+        $r5 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        r11 = new java.lang.StringBuilder;
+
+        specialinvoke r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r10);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r2 = virtualinvoke $r5.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r9);
+
+        virtualinvoke r2.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public void good() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__File_42 r0;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42 r1;
+
+        r0 := @this: CWE78_OS_Command_Injection__File_42;
+
+        r1 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42) r0;
+
+        specialinvoke r1.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42: void goodG2B()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[]) throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException
+    {
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        staticinvoke <testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__File_42: void mainFromParent(java.lang.String[])>(r0);
+
+        return;
+    }
+}

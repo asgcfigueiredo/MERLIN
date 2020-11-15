@@ -1,0 +1,68 @@
+public class GetFileServlet extends javax.servlet.http.HttpServlet
+{
+
+    public void <init>()
+    {
+        GetFileServlet r0;
+
+        r0 := @this: GetFileServlet;
+
+        specialinvoke r0.<javax.servlet.http.HttpServlet: void <init>()>();
+
+        return;
+    }
+
+    protected void doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException
+    {
+        GetFileServlet r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.String r3, r4, r6;
+        javax.servlet.RequestDispatcher r7;
+        java.lang.StringBuilder $r9, $r10, r13;
+        java.io.PrintStream $r12;
+        java.io.FileInputStream r14;
+        javax.servlet.ServletRequest r15;
+        javax.servlet.ServletResponse r16;
+
+        r0 := @this: GetFileServlet;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getParameter(java.lang.String)>("filename");
+
+        r13 = new java.lang.StringBuilder;
+
+        specialinvoke r13.<java.lang.StringBuilder: void <init>()>();
+
+        $r9 = virtualinvoke r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("src/main/webapp/resources/");
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r3);
+
+        r4 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r14 = new java.io.FileInputStream;
+
+        specialinvoke r14.<java.io.FileInputStream: void <init>(java.lang.String)>(r4);
+
+        r6 = staticinvoke <org.apache.commons.io.IOUtils: java.lang.String toString(java.io.InputStream,java.lang.String)>(r14, "UTF-8");
+
+        $r12 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r12.<java.io.PrintStream: void println(java.lang.String)>(r6);
+
+        interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: void setAttribute(java.lang.String,java.lang.Object)>("file", r6);
+
+        r7 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: javax.servlet.RequestDispatcher getRequestDispatcher(java.lang.String)>("getFilename.jsp");
+
+        r15 = (javax.servlet.ServletRequest) r1;
+
+        r16 = (javax.servlet.ServletResponse) r2;
+
+        interfaceinvoke r7.<javax.servlet.RequestDispatcher: void forward(javax.servlet.ServletRequest,javax.servlet.ServletResponse)>(r15, r16);
+
+        return;
+    }
+}

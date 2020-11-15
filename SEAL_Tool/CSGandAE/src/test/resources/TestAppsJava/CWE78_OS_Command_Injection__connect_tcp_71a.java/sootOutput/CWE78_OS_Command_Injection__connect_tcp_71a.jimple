@@ -1,0 +1,298 @@
+public class CWE78_OS_Command_Injection__connect_tcp_71a extends testcasesupport.AbstractTestCase
+{
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__connect_tcp_71a r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_71a;
+
+        specialinvoke r0.<testcasesupport.AbstractTestCase: void <init>()>();
+
+        return;
+    }
+
+    public void bad() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__connect_tcp_71a r0;
+        java.net.Socket $r2, r38;
+        java.io.InputStreamReader $r3, r40;
+        java.io.InputStream $r4;
+        java.io.BufferedReader $r5, r39;
+        java.io.IOException $r6, $r9, $r12, $r15, $r18, $r21, $r24, $r28, $r31, $r34;
+        java.util.logging.Level $r7, $r10, $r13, $r16, $r19, $r22, $r25, $r29, $r32, $r35;
+        java.util.logging.Logger $r8, $r11, $r14, $r17, $r20, $r23, $r26, $r30, $r33, $r36;
+        java.lang.Throwable $r27;
+        java.lang.String r37;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71b $r51;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_71a;
+
+        r37 = "";
+
+        r38 = null;
+
+        r39 = null;
+
+        r40 = null;
+
+     label01:
+        $r2 = new java.net.Socket;
+
+        specialinvoke $r2.<java.net.Socket: void <init>(java.lang.String,int)>("host.example.org", 39544);
+
+        r38 = $r2;
+
+        $r3 = new java.io.InputStreamReader;
+
+        $r4 = virtualinvoke $r2.<java.net.Socket: java.io.InputStream getInputStream()>();
+
+        specialinvoke $r3.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.lang.String)>($r4, "UTF-8");
+
+        r40 = $r3;
+
+        $r5 = new java.io.BufferedReader;
+
+        specialinvoke $r5.<java.io.BufferedReader: void <init>(java.io.Reader)>($r3);
+
+        r39 = $r5;
+
+        r37 = virtualinvoke $r5.<java.io.BufferedReader: java.lang.String readLine()>();
+
+     label02:
+        if $r5 == null goto label03;
+
+        virtualinvoke $r5.<java.io.BufferedReader: void close()>();
+
+     label03:
+        goto label05;
+
+     label04:
+        $r24 := @caughtexception;
+
+        $r26 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r25 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r26.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r25, "Error closing BufferedReader", $r24);
+
+     label05:
+        if $r3 == null goto label06;
+
+        virtualinvoke $r3.<java.io.InputStreamReader: void close()>();
+
+     label06:
+        goto label08;
+
+     label07:
+        $r34 := @caughtexception;
+
+        $r36 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r35 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r36.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r35, "Error closing InputStreamReader", $r34);
+
+     label08:
+        if $r2 == null goto label09;
+
+        virtualinvoke $r2.<java.net.Socket: void close()>();
+
+     label09:
+        goto label32;
+
+     label10:
+        $r21 := @caughtexception;
+
+        $r23 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r22 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r23.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r22, "Error closing Socket", $r21);
+
+        goto label32;
+
+     label11:
+        $r18 := @caughtexception;
+
+        $r20 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r19 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r20.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r19, "Error with stream reading", $r18);
+
+     label12:
+        if r39 == null goto label13;
+
+        virtualinvoke r39.<java.io.BufferedReader: void close()>();
+
+     label13:
+        goto label15;
+
+     label14:
+        $r6 := @caughtexception;
+
+        $r8 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r7 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r8.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r7, "Error closing BufferedReader", $r6);
+
+     label15:
+        if r40 == null goto label16;
+
+        virtualinvoke r40.<java.io.InputStreamReader: void close()>();
+
+     label16:
+        goto label18;
+
+     label17:
+        $r15 := @caughtexception;
+
+        $r17 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r16 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r17.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r16, "Error closing InputStreamReader", $r15);
+
+     label18:
+        if r38 == null goto label19;
+
+        virtualinvoke r38.<java.net.Socket: void close()>();
+
+     label19:
+        goto label32;
+
+     label20:
+        $r28 := @caughtexception;
+
+        $r30 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r29 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r30.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r29, "Error closing Socket", $r28);
+
+        goto label32;
+
+     label21:
+        $r27 := @caughtexception;
+
+     label22:
+        if r39 == null goto label23;
+
+        virtualinvoke r39.<java.io.BufferedReader: void close()>();
+
+     label23:
+        goto label25;
+
+     label24:
+        $r9 := @caughtexception;
+
+        $r11 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r10 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r11.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r10, "Error closing BufferedReader", $r9);
+
+     label25:
+        if r40 == null goto label26;
+
+        virtualinvoke r40.<java.io.InputStreamReader: void close()>();
+
+     label26:
+        goto label28;
+
+     label27:
+        $r12 := @caughtexception;
+
+        $r14 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r13 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r14.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r13, "Error closing InputStreamReader", $r12);
+
+     label28:
+        if r38 == null goto label29;
+
+        virtualinvoke r38.<java.net.Socket: void close()>();
+
+     label29:
+        goto label31;
+
+     label30:
+        $r31 := @caughtexception;
+
+        $r33 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r32 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r33.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r32, "Error closing Socket", $r31);
+
+     label31:
+        throw $r27;
+
+     label32:
+        $r51 = new testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71b;
+
+        specialinvoke $r51.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71b: void <init>()>();
+
+        virtualinvoke $r51.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71b: void badSink(java.lang.Object)>(r37);
+
+        return;
+
+        catch java.io.IOException from label02 to label03 with label04;
+        catch java.io.IOException from label05 to label06 with label07;
+        catch java.io.IOException from label08 to label09 with label10;
+        catch java.io.IOException from label01 to label02 with label11;
+        catch java.io.IOException from label12 to label13 with label14;
+        catch java.io.IOException from label15 to label16 with label17;
+        catch java.io.IOException from label18 to label19 with label20;
+        catch java.lang.Throwable from label01 to label02 with label21;
+        catch java.lang.Throwable from label11 to label12 with label21;
+        catch java.io.IOException from label22 to label23 with label24;
+        catch java.io.IOException from label25 to label26 with label27;
+        catch java.io.IOException from label28 to label29 with label30;
+        catch java.lang.Throwable from label21 to label22 with label21;
+    }
+
+    public void good() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__connect_tcp_71a r0;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71a r1;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_71a;
+
+        r1 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71a) r0;
+
+        specialinvoke r1.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71a: void goodG2B()>();
+
+        return;
+    }
+
+    private void goodG2B() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__connect_tcp_71a r0;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71b $r2;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_71a;
+
+        $r2 = new testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71b;
+
+        specialinvoke $r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71b: void <init>()>();
+
+        virtualinvoke $r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71b: void goodG2BSink(java.lang.Object)>("foo");
+
+        return;
+    }
+
+    public static void main(java.lang.String[]) throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException
+    {
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        staticinvoke <testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_71a: void mainFromParent(java.lang.String[])>(r0);
+
+        return;
+    }
+}

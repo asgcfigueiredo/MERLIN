@@ -1,0 +1,31 @@
+digraph "void doPost(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)" {
+    label="void doPost(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="r1 := @parameter0",];
+    "0"->"1";
+    "2" [label="r2 := @parameter1",];
+    "1"->"2";
+    "3" [label="r5 = r1.getParameter(\"name\")",];
+    "2"->"3";
+    "4" [label="r6 = org.apache.commons.lang.StringEscapeUtils.escapeHtml(r5)",];
+    "3"->"4";
+    "5" [label="r1.setAttribute(\"name\", r6)",];
+    "4"->"5";
+    "6" [label="r1.setAttribute(\"var\", \"This should be a variable\")",];
+    "5"->"6";
+    "7" [label="r3 = r1.getRequestDispatcher(\"result.jsp\")",];
+    "6"->"7";
+    "8" [label="$r4 = r2.getWriter()",];
+    "7"->"8";
+    "9" [label="$r4.print(\"This is just a test, because I suck at this\")",];
+    "8"->"9";
+    "10" [label="r7 = (javax.servlet.ServletRequest) r1",];
+    "9"->"10";
+    "11" [label="r8 = (javax.servlet.ServletResponse) r2",];
+    "10"->"11";
+    "12" [label="r3.forward(r7, r8)",];
+    "11"->"12";
+    "13" [style=filled,fillcolor=lightgray,label="return",];
+    "12"->"13";
+}

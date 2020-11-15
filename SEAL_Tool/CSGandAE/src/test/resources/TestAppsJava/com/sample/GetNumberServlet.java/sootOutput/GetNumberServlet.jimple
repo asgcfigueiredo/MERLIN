@@ -1,0 +1,67 @@
+public class GetNumberServlet extends javax.servlet.http.HttpServlet
+{
+
+    public void <init>()
+    {
+        GetNumberServlet r0;
+
+        r0 := @this: GetNumberServlet;
+
+        specialinvoke r0.<javax.servlet.http.HttpServlet: void <init>()>();
+
+        return;
+    }
+
+    protected void doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException
+    {
+        GetNumberServlet r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.String r3, r8;
+        javax.servlet.RequestDispatcher r4;
+        boolean $z0;
+        java.lang.StringBuilder $r6, $r7, r9;
+        javax.servlet.ServletRequest r10;
+        javax.servlet.ServletResponse r11;
+
+        r0 := @this: GetNumberServlet;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getParameter(java.lang.String)>("number");
+
+        $z0 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isNumeric(java.lang.CharSequence)>(r3);
+
+        if $z0 == 0 goto label1;
+
+        r9 = new java.lang.StringBuilder;
+
+        specialinvoke r9.<java.lang.StringBuilder: void <init>()>();
+
+        $r6 = virtualinvoke r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Congrats you gave me a number. That\'s your number ");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r3);
+
+        r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label2;
+
+     label1:
+        r8 = "This is not a number";
+
+     label2:
+        interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: void setAttribute(java.lang.String,java.lang.Object)>("quote", r8);
+
+        r4 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: javax.servlet.RequestDispatcher getRequestDispatcher(java.lang.String)>("resultNumber.jsp");
+
+        r10 = (javax.servlet.ServletRequest) r1;
+
+        r11 = (javax.servlet.ServletResponse) r2;
+
+        interfaceinvoke r4.<javax.servlet.RequestDispatcher: void forward(javax.servlet.ServletRequest,javax.servlet.ServletResponse)>(r10, r11);
+
+        return;
+    }
+}

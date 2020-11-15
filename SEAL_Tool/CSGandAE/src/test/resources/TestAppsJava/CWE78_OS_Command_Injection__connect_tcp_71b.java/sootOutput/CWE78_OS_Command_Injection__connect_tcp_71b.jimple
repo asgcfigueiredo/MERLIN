@@ -1,0 +1,116 @@
+public class CWE78_OS_Command_Injection__connect_tcp_71b extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__connect_tcp_71b r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_71b;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void badSink(java.lang.Object) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__connect_tcp_71b r0;
+        java.lang.Object r1;
+        java.lang.String r2, $r4, $r5, $r10, r11;
+        java.lang.Process r3;
+        int $i0;
+        java.lang.Runtime $r6;
+        java.lang.StringBuilder $r7, $r8, $r9;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_71b;
+
+        r1 := @parameter0: java.lang.Object;
+
+        r2 = (java.lang.String) r1;
+
+        $r4 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r5 = virtualinvoke $r4.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r11 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r11 = "/bin/ls ";
+
+     label2:
+        $r6 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r11);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r3 = virtualinvoke $r6.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r10);
+
+        virtualinvoke r3.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public void goodG2BSink(java.lang.Object) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__connect_tcp_71b r0;
+        java.lang.Object r1;
+        java.lang.String r2, $r4, $r5, $r10, r11;
+        java.lang.Process r3;
+        int $i0;
+        java.lang.Runtime $r6;
+        java.lang.StringBuilder $r7, $r8, $r9;
+
+        r0 := @this: CWE78_OS_Command_Injection__connect_tcp_71b;
+
+        r1 := @parameter0: java.lang.Object;
+
+        r2 = (java.lang.String) r1;
+
+        $r4 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r5 = virtualinvoke $r4.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r11 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r11 = "/bin/ls ";
+
+     label2:
+        $r6 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r11);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r2);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r3 = virtualinvoke $r6.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r10);
+
+        virtualinvoke r3.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+}

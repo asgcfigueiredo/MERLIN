@@ -1,0 +1,264 @@
+public class CWE78_OS_Command_Injection__getParameter_Servlet_05 extends testcasesupport.AbstractTestCaseServlet
+{
+    private boolean privateTrue;
+    private boolean privateFalse;
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__getParameter_Servlet_05 r0;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05 r1, r2;
+
+        r0 := @this: CWE78_OS_Command_Injection__getParameter_Servlet_05;
+
+        specialinvoke r0.<testcasesupport.AbstractTestCaseServlet: void <init>()>();
+
+        r1 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0;
+
+        r1.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05: boolean privateTrue> = 1;
+
+        r2 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0;
+
+        r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05: boolean privateFalse> = 0;
+
+        return;
+    }
+
+    public void bad(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getParameter_Servlet_05 r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.Process r3;
+        boolean $z0;
+        java.lang.String $r4, $r5, $r10, r11, r12;
+        int $i0;
+        java.lang.Runtime $r6;
+        java.lang.StringBuilder $r8, $r9, r13;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05 r14;
+
+        r0 := @this: CWE78_OS_Command_Injection__getParameter_Servlet_05;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r14 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0;
+
+        $z0 = r14.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05: boolean privateTrue>;
+
+        if $z0 == 0 goto label1;
+
+        r11 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getParameter(java.lang.String)>("name");
+
+        goto label2;
+
+     label1:
+        r11 = null;
+
+     label2:
+        $r4 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r5 = virtualinvoke $r4.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label3;
+
+        r12 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label4;
+
+     label3:
+        r12 = "/bin/ls ";
+
+     label4:
+        $r6 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        r13 = new java.lang.StringBuilder;
+
+        specialinvoke r13.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r12);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r11);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r3 = virtualinvoke $r6.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r10);
+
+        virtualinvoke r3.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    private void goodG2B1(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getParameter_Servlet_05 r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.Process r3;
+        boolean $z0;
+        java.lang.String $r4, $r5, $r10, r11, r12;
+        int $i0;
+        java.lang.Runtime $r6;
+        java.lang.StringBuilder $r8, $r9, r13;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05 r14;
+
+        r0 := @this: CWE78_OS_Command_Injection__getParameter_Servlet_05;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r14 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0;
+
+        $z0 = r14.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05: boolean privateFalse>;
+
+        if $z0 == 0 goto label1;
+
+        r11 = null;
+
+        goto label2;
+
+     label1:
+        r11 = "foo";
+
+     label2:
+        $r4 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r5 = virtualinvoke $r4.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label3;
+
+        r12 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label4;
+
+     label3:
+        r12 = "/bin/ls ";
+
+     label4:
+        $r6 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        r13 = new java.lang.StringBuilder;
+
+        specialinvoke r13.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r12);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r11);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r3 = virtualinvoke $r6.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r10);
+
+        virtualinvoke r3.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    private void goodG2B2(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getParameter_Servlet_05 r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.Process r3;
+        boolean $z0;
+        java.lang.String $r4, $r5, $r10, r11, r12;
+        int $i0;
+        java.lang.Runtime $r6;
+        java.lang.StringBuilder $r8, $r9, r13;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05 r14;
+
+        r0 := @this: CWE78_OS_Command_Injection__getParameter_Servlet_05;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r14 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0;
+
+        $z0 = r14.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05: boolean privateTrue>;
+
+        if $z0 == 0 goto label1;
+
+        r11 = "foo";
+
+        goto label2;
+
+     label1:
+        r11 = null;
+
+     label2:
+        $r4 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r5 = virtualinvoke $r4.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r5.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label3;
+
+        r12 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label4;
+
+     label3:
+        r12 = "/bin/ls ";
+
+     label4:
+        $r6 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        r13 = new java.lang.StringBuilder;
+
+        specialinvoke r13.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r12);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r11);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r3 = virtualinvoke $r6.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r10);
+
+        virtualinvoke r3.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public void good(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getParameter_Servlet_05 r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05 r3, r4;
+
+        r0 := @this: CWE78_OS_Command_Injection__getParameter_Servlet_05;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0;
+
+        specialinvoke r3.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05: void goodG2B1(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)>(r1, r2);
+
+        r4 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0;
+
+        specialinvoke r4.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05: void goodG2B2(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)>(r1, r2);
+
+        return;
+    }
+
+    public static void main(java.lang.String[]) throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException
+    {
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        staticinvoke <testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05: void mainFromParent(java.lang.String[])>(r0);
+
+        return;
+    }
+}

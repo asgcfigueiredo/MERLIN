@@ -1,0 +1,11 @@
+digraph "void good()" {
+    label="void good()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="r1 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53a) r0",];
+    "0"->"1";
+    "2" [label="specialinvoke r1.goodG2B()",];
+    "1"->"2";
+    "3" [style=filled,fillcolor=lightgray,label="return",];
+    "2"->"3";
+}

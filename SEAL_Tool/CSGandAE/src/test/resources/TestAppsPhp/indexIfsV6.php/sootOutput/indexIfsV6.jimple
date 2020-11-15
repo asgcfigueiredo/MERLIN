@@ -1,0 +1,270 @@
+public class indexIfsV6 extends jphp.runtime.lang.BaseObject
+{
+    public static final java.lang.String $FN;
+    public static jphp.runtime.env.TraceInfo[] $TRC;
+    public static jphp.runtime.Memory[] $MEM;
+    public static jphp.runtime.Memory[][] $AMEM;
+    public static jphp.runtime.invoke.cache.FunctionCallCache $CALL_FUNC_CACHE;
+    public static jphp.runtime.invoke.cache.MethodCallCache $CALL_METH_CACHE;
+    public static jphp.runtime.invoke.cache.PropertyCallCache $CALL_PROP_CACHE;
+    public static jphp.runtime.invoke.cache.ConstantCallCache $CALL_CONST_CACHE;
+    public static jphp.runtime.invoke.cache.ClassCallCache $CALL_CLASS_CACHE;
+    public static final java.lang.String $CL;
+
+    public void <init>(jphp.runtime.env.Environment, jphp.runtime.reflection.ClassEntity)
+    {
+        indexIfsV6 r0;
+        jphp.runtime.env.Environment r1;
+        jphp.runtime.reflection.ClassEntity r2;
+
+        r0 := @this: indexIfsV6;
+
+        r1 := @parameter0: jphp.runtime.env.Environment;
+
+        r2 := @parameter1: jphp.runtime.reflection.ClassEntity;
+
+        specialinvoke r0.<jphp.runtime.lang.BaseObject: void <init>(jphp.runtime.env.Environment,jphp.runtime.reflection.ClassEntity)>(r1, r2);
+
+        return;
+    }
+
+    public static final jphp.runtime.Memory __include(jphp.runtime.env.Environment, jphp.runtime.Memory[], jphp.runtime.memory.ArrayMemory)
+    {
+        jphp.runtime.env.Environment r0;
+        jphp.runtime.Memory[] r1, $r11, $r14, $r17, $r22, $r25, $r28, $r42, $r44;
+        jphp.runtime.memory.ArrayMemory r2, r3, $r10, $r21;
+        jphp.runtime.Memory r4, r5, r6, r7, $r8, $r12, $r15, $r18, $r23, $r26, $r29, $r32, $r36, $r37, $r40, $r41, $r43, $r45, r46, r47, r48, r49, r50, r51;
+        boolean $z0, $z1;
+        jphp.runtime.env.TraceInfo[] $r34, $r38;
+        jphp.runtime.env.TraceInfo $r35, $r39;
+
+        r0 := @parameter0: jphp.runtime.env.Environment;
+
+        r1 := @parameter1: jphp.runtime.Memory[];
+
+        r2 := @parameter2: jphp.runtime.memory.ArrayMemory;
+
+        r3 = staticinvoke <jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ArrayMemory valueOfRef(jphp.runtime.memory.ArrayMemory)>(r2);
+
+        r46 = (jphp.runtime.Memory) r3;
+
+        r4 = virtualinvoke r46.<jphp.runtime.Memory: jphp.runtime.Memory refOfIndex(java.lang.String)>("arr");
+
+        r47 = (jphp.runtime.Memory) r3;
+
+        r5 = virtualinvoke r47.<jphp.runtime.Memory: jphp.runtime.Memory refOfIndex(java.lang.String)>("flag");
+
+        r48 = (jphp.runtime.Memory) r3;
+
+        r6 = virtualinvoke r48.<jphp.runtime.Memory: jphp.runtime.Memory refOfIndex(java.lang.String)>("index");
+
+        r49 = (jphp.runtime.Memory) r3;
+
+        r7 = virtualinvoke r49.<jphp.runtime.Memory: jphp.runtime.Memory refOfIndex(java.lang.String)>("arr2");
+
+        $r8 = staticinvoke <jphp.runtime.memory.TrueMemory: jphp.runtime.Memory valueOf(boolean)>(1);
+
+        virtualinvoke r5.<jphp.runtime.Memory: jphp.runtime.Memory assign(jphp.runtime.Memory)>($r8);
+
+        $z0 = virtualinvoke r5.<jphp.runtime.Memory: boolean toBoolean()>();
+
+        if $z0 == 0 goto label1;
+
+        $r44 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM>;
+
+        $r45 = $r44[0];
+
+        virtualinvoke r0.<jphp.runtime.env.Environment: void echo(jphp.runtime.Memory)>($r45);
+
+     label1:
+        $r10 = staticinvoke <jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ArrayMemory createListed(int)>(3);
+
+        $r11 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM>;
+
+        $r12 = $r11[1];
+
+        virtualinvoke $r10.<jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ReferenceMemory add(jphp.runtime.Memory)>($r12);
+
+        $r14 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM>;
+
+        $r15 = $r14[2];
+
+        virtualinvoke $r10.<jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ReferenceMemory add(jphp.runtime.Memory)>($r15);
+
+        $r17 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM>;
+
+        $r18 = $r17[3];
+
+        virtualinvoke $r10.<jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ReferenceMemory add(jphp.runtime.Memory)>($r18);
+
+        r50 = (jphp.runtime.Memory) $r10;
+
+        virtualinvoke r4.<jphp.runtime.Memory: jphp.runtime.Memory assign(jphp.runtime.Memory)>(r50);
+
+        $r21 = staticinvoke <jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ArrayMemory createListed(int)>(3);
+
+        $r22 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM>;
+
+        $r23 = $r22[4];
+
+        virtualinvoke $r21.<jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ReferenceMemory add(jphp.runtime.Memory)>($r23);
+
+        $r25 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM>;
+
+        $r26 = $r25[5];
+
+        virtualinvoke $r21.<jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ReferenceMemory add(jphp.runtime.Memory)>($r26);
+
+        $r28 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM>;
+
+        $r29 = $r28[6];
+
+        virtualinvoke $r21.<jphp.runtime.memory.ArrayMemory: jphp.runtime.memory.ReferenceMemory add(jphp.runtime.Memory)>($r29);
+
+        r51 = (jphp.runtime.Memory) $r21;
+
+        virtualinvoke r7.<jphp.runtime.Memory: jphp.runtime.Memory assign(jphp.runtime.Memory)>(r51);
+
+        $r32 = staticinvoke <jphp.runtime.ext.core.MathFunctions: jphp.runtime.Memory rand(long,long)>(0L, 2L);
+
+        virtualinvoke r6.<jphp.runtime.Memory: jphp.runtime.Memory assign(jphp.runtime.Memory)>($r32);
+
+        $r34 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.env.TraceInfo[] $TRC>;
+
+        $r35 = $r34[0];
+
+        $r36 = virtualinvoke r7.<jphp.runtime.Memory: jphp.runtime.Memory valueOfIndex(jphp.runtime.env.TraceInfo,long)>($r35, 0L);
+
+        $r37 = staticinvoke <jphp.runtime.Memory: jphp.runtime.Memory __static_fast_toImmutable(jphp.runtime.Memory)>(r6);
+
+        $z1 = virtualinvoke $r36.<jphp.runtime.Memory: boolean equal(jphp.runtime.Memory)>($r37);
+
+        if $z1 == 0 goto label2;
+
+        $r42 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM>;
+
+        $r43 = $r42[7];
+
+        virtualinvoke r0.<jphp.runtime.env.Environment: void echo(jphp.runtime.Memory)>($r43);
+
+     label2:
+        $r38 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.env.TraceInfo[] $TRC>;
+
+        $r39 = $r38[1];
+
+        $r40 = virtualinvoke r4.<jphp.runtime.Memory: jphp.runtime.Memory valueOfIndex(jphp.runtime.env.TraceInfo,jphp.runtime.Memory)>($r39, r6);
+
+        virtualinvoke r0.<jphp.runtime.env.Environment: void echo(jphp.runtime.Memory)>($r40);
+
+        $r41 = <jphp.runtime.Memory: jphp.runtime.Memory UNDEFINED>;
+
+        return $r41;
+    }
+
+    static void <clinit>()
+    {
+        jphp.runtime.env.TraceInfo[] $r0;
+        java.lang.String $r1, $r3;
+        jphp.runtime.env.TraceInfo $r2, $r4;
+        jphp.runtime.Memory[] $r5;
+        jphp.runtime.Memory $r6, $r7, $r8, $r9, $r10, $r11, $r12, $r13;
+        jphp.runtime.Memory[][] $r14;
+        jphp.runtime.invoke.cache.FunctionCallCache $r15;
+        jphp.runtime.invoke.cache.MethodCallCache $r16;
+        jphp.runtime.invoke.cache.ConstantCallCache $r17;
+        jphp.runtime.invoke.cache.PropertyCallCache $r18;
+        jphp.runtime.invoke.cache.ClassCallCache $r19;
+
+        <indexIfsV6: java.lang.String $CL> = "$php_module_m603500cb1f0b47ab89f44e28e35fb56e";
+
+        <indexIfsV6: java.lang.String $FN> = "d:\\Alexandra Fig\\Documents\\T\u00e9cnico\\Mestrado\\Tese\\Tese\\Desenvolvimento\\Thesis\\input\\indexIfsV6.php";
+
+        $r0 = newarray (jphp.runtime.env.TraceInfo)[2];
+
+        $r1 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: java.lang.String $FN>;
+
+        $r2 = staticinvoke <jphp.runtime.env.TraceInfo: jphp.runtime.env.TraceInfo valueOf(java.lang.String,long,long)>($r1, 9L, 10L);
+
+        $r0[0] = $r2;
+
+        $r3 = <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: java.lang.String $FN>;
+
+        $r4 = staticinvoke <jphp.runtime.env.TraceInfo: jphp.runtime.env.TraceInfo valueOf(java.lang.String,long,long)>($r3, 12L, 10L);
+
+        $r0[1] = $r4;
+
+        <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.env.TraceInfo[] $TRC> = $r0;
+
+        $r5 = newarray (jphp.runtime.Memory)[8];
+
+        $r6 = staticinvoke <jphp.runtime.memory.StringMemory: jphp.runtime.Memory valueOf(java.lang.String)>("Hello World");
+
+        $r5[0] = $r6;
+
+        $r7 = staticinvoke <jphp.runtime.memory.StringMemory: jphp.runtime.Memory valueOf(java.lang.String)>("It will happen");
+
+        $r5[1] = $r7;
+
+        $r8 = staticinvoke <jphp.runtime.memory.StringMemory: jphp.runtime.Memory valueOf(java.lang.String)>("No");
+
+        $r5[2] = $r8;
+
+        $r9 = staticinvoke <jphp.runtime.memory.StringMemory: jphp.runtime.Memory valueOf(java.lang.String)>("Who knows");
+
+        $r5[3] = $r9;
+
+        $r10 = staticinvoke <jphp.runtime.memory.LongMemory: jphp.runtime.Memory valueOf(long)>(0L);
+
+        $r5[4] = $r10;
+
+        $r11 = staticinvoke <jphp.runtime.memory.LongMemory: jphp.runtime.Memory valueOf(long)>(1L);
+
+        $r5[5] = $r11;
+
+        $r12 = staticinvoke <jphp.runtime.memory.LongMemory: jphp.runtime.Memory valueOf(long)>(2L);
+
+        $r5[6] = $r12;
+
+        $r13 = staticinvoke <jphp.runtime.memory.StringMemory: jphp.runtime.Memory valueOf(java.lang.String)>("Awesome");
+
+        $r5[7] = $r13;
+
+        <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[] $MEM> = $r5;
+
+        $r14 = newarray (jphp.runtime.Memory[])[0];
+
+        <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.Memory[][] $AMEM> = $r14;
+
+        $r15 = new jphp.runtime.invoke.cache.FunctionCallCache;
+
+        specialinvoke $r15.<jphp.runtime.invoke.cache.FunctionCallCache: void <init>()>();
+
+        <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.invoke.cache.FunctionCallCache $CALL_FUNC_CACHE> = $r15;
+
+        $r16 = new jphp.runtime.invoke.cache.MethodCallCache;
+
+        specialinvoke $r16.<jphp.runtime.invoke.cache.MethodCallCache: void <init>()>();
+
+        <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.invoke.cache.MethodCallCache $CALL_METH_CACHE> = $r16;
+
+        $r17 = new jphp.runtime.invoke.cache.ConstantCallCache;
+
+        specialinvoke $r17.<jphp.runtime.invoke.cache.ConstantCallCache: void <init>()>();
+
+        <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.invoke.cache.ConstantCallCache $CALL_CONST_CACHE> = $r17;
+
+        $r18 = new jphp.runtime.invoke.cache.PropertyCallCache;
+
+        specialinvoke $r18.<jphp.runtime.invoke.cache.PropertyCallCache: void <init>()>();
+
+        <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.invoke.cache.PropertyCallCache $CALL_PROP_CACHE> = $r18;
+
+        $r19 = new jphp.runtime.invoke.cache.ClassCallCache;
+
+        specialinvoke $r19.<jphp.runtime.invoke.cache.ClassCallCache: void <init>()>();
+
+        <$php_module_m603500cb1f0b47ab89f44e28e35fb56e: jphp.runtime.invoke.cache.ClassCallCache $CALL_CLASS_CACHE> = $r19;
+
+        return;
+    }
+}

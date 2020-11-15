@@ -1,0 +1,9 @@
+digraph "java.util.Set getPackageImports()" {
+    label="java.util.Set getPackageImports()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="$r1 = org.apache.jsp.result_005fname_jsp._jspx_imports_packages",];
+    "0"->"1";
+    "2" [style=filled,fillcolor=lightgray,label="return $r1",];
+    "1"->"2";
+}

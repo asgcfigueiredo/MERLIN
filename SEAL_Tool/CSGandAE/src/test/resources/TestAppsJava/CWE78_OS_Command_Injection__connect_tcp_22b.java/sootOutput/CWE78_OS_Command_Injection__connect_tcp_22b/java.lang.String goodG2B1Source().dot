@@ -1,0 +1,18 @@
+digraph "java.lang.String goodG2B1Source()" {
+    label="java.lang.String goodG2B1Source()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="$z0 = testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_22a.goodG2B1PublicStatic",];
+    "0"->"1";
+    "2" [label="if $z0 == 0 goto label1",];
+    "1"->"2";
+    "3" [label="r1 = null",];
+    "2"->"3";
+    "5" [label="label1: r1 = \"foo\"",];
+    "2"->"5";
+    "4" [label="goto label2",];
+    "3"->"4";
+    "6" [style=filled,fillcolor=lightgray,label="label2: return r1",];
+    "4"->"6";
+    "5"->"6";
+}

@@ -1,0 +1,58 @@
+Tested:
+	- test/CWE78_OSCI/Java/Tested: 
+		- LOC: 36739 (code: 21905 + comment: 14834)
+		- #files: 504
+	- test/CWE78_OSCI/Java/Mine/FileOSCI:
+		- LOC: 135 (code: 118 + comment: 17)
+		- #files: 3
+	- test/CWE78_OSCI/Php/Tested:
+		- LOC: 123024 (code: 27408 + comment: 95616)
+		- #files: 2496
+	- test/CWE78_OSCI/Php/Mine/t:
+		- LOC: 60
+		- #files: 4
+	- test/CWE_XSS/Java/Tested:
+		- LOC: 124473 (code: 70413 + comment: 54060) 
+		- #files: 1960
+	- test/CWE_XSS/Java/Mine/t:
+		- LOC: 159 (code: 149 + comment: 10)
+		- #files: 5
+	- test/CWE_XSS/Php/Tested:
+		- LOC: 573296 (code: 184608 + comment: 388688)
+		- #files: 10080
+	- test/CWE_XSS/Php/Mine/t:
+		- LOC: 141
+		- #files: 9
+	- test/CWE_SQLi/Java/Tested:
+		- LOC: 387072 (code: 299563 + comment: 87509)
+		- #files: 2589
+	- test/CWE_SQLi/Java/Mine:
+		- LOC: 63
+		- #files: 3
+Total: -LOC: 1245162; -#files: 17653.
+Total Java: -LOC: 548641; -#files: 5064.
+Total Php: -LOC: 696521; -#files: 12589.
+
+Total code: -LOC: 604227;
+
+Real web Apps:
+	- DVWA: 
+		- LOC: 18093 (code: 14895 + comment: 3198)
+		- #files: 353
+	- multidae:
+		- LOC: 160584 (code: 142515 + comment: 18069)
+		- #files: 919
+	- bwapp:
+		- LOC: 30166 (code: 24070 + comment: 6096)
+		- #files: 198
+	- wackopicko:
+		- LOC: 1926 (code: 1916 + comment: 10)
+		- #files: 48
+	- Java Vulnerable Lab:
+		- LOC: 2330 (code: 1795 + comment: 535)
+		- #files: 60
+	- HackMe:
+		- LOC: 846 (code: 824 + comment: 22)
+		- #files: 17
+Total: -LOC: 213945; -#files: 1595.
+Total code: -LOC: 186015

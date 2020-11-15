@@ -1,0 +1,351 @@
+public class CWE78_OS_Command_Injection__URLConnection_45 extends testcasesupport.AbstractTestCase
+{
+    private java.lang.String dataBad;
+    private java.lang.String dataGoodG2B;
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__URLConnection_45 r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__URLConnection_45;
+
+        specialinvoke r0.<testcasesupport.AbstractTestCase: void <init>()>();
+
+        return;
+    }
+
+    private void badSink() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__URLConnection_45 r0;
+        java.lang.String r1, $r3, $r4, $r9, r10;
+        java.lang.Process r2;
+        int $i0;
+        java.lang.Runtime $r5;
+        java.lang.StringBuilder $r7, $r8, r11;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45 r12;
+
+        r0 := @this: CWE78_OS_Command_Injection__URLConnection_45;
+
+        r12 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0;
+
+        r1 = r12.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45: java.lang.String dataBad>;
+
+        $r3 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r4 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r10 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r10 = "/bin/ls ";
+
+     label2:
+        $r5 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        r11 = new java.lang.StringBuilder;
+
+        specialinvoke r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r10);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r2 = virtualinvoke $r5.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r9);
+
+        virtualinvoke r2.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public void bad() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__URLConnection_45 r0;
+        java.net.URLConnection r1;
+        java.io.InputStream $r5;
+        java.io.IOException $r7, $r10, $r14, $r17, $r20, $r23, $r26;
+        java.util.logging.Level $r8, $r11, $r15, $r18, $r21, $r24, $r27;
+        java.util.logging.Logger $r9, $r12, $r16, $r19, $r22, $r25, $r28;
+        java.lang.Throwable $r13;
+        java.lang.String r29;
+        java.io.BufferedReader r30, r41;
+        java.io.InputStreamReader r31, r40;
+        java.net.URL r39;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45 r42, r43;
+
+        r0 := @this: CWE78_OS_Command_Injection__URLConnection_45;
+
+        r29 = "";
+
+        r39 = new java.net.URL;
+
+        specialinvoke r39.<java.net.URL: void <init>(java.lang.String)>("http://www.example.org/");
+
+        r1 = virtualinvoke r39.<java.net.URL: java.net.URLConnection openConnection()>();
+
+        r30 = null;
+
+        r31 = null;
+
+     label01:
+        r40 = new java.io.InputStreamReader;
+
+        $r5 = virtualinvoke r1.<java.net.URLConnection: java.io.InputStream getInputStream()>();
+
+        specialinvoke r40.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.lang.String)>($r5, "UTF-8");
+
+        r31 = r40;
+
+        r41 = new java.io.BufferedReader;
+
+        specialinvoke r41.<java.io.BufferedReader: void <init>(java.io.Reader)>(r40);
+
+        r30 = r41;
+
+        r29 = virtualinvoke r41.<java.io.BufferedReader: java.lang.String readLine()>();
+
+     label02:
+        if r41 == null goto label03;
+
+        virtualinvoke r41.<java.io.BufferedReader: void close()>();
+
+     label03:
+        goto label05;
+
+     label04:
+        $r17 := @caughtexception;
+
+        $r19 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r18 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r19.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r18, "Error closing BufferedReader", $r17);
+
+     label05:
+        if r40 == null goto label06;
+
+        virtualinvoke r40.<java.io.InputStreamReader: void close()>();
+
+     label06:
+        goto label23;
+
+     label07:
+        $r26 := @caughtexception;
+
+        $r28 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r27 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r28.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r27, "Error closing InputStreamReader", $r26);
+
+        goto label23;
+
+     label08:
+        $r14 := @caughtexception;
+
+        $r16 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r15 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r16.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r15, "Error with stream reading", $r14);
+
+     label09:
+        if r30 == null goto label10;
+
+        virtualinvoke r30.<java.io.BufferedReader: void close()>();
+
+     label10:
+        goto label12;
+
+     label11:
+        $r20 := @caughtexception;
+
+        $r22 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r21 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r22.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r21, "Error closing BufferedReader", $r20);
+
+     label12:
+        if r31 == null goto label13;
+
+        virtualinvoke r31.<java.io.InputStreamReader: void close()>();
+
+     label13:
+        goto label23;
+
+     label14:
+        $r7 := @caughtexception;
+
+        $r9 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r8 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r9.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r8, "Error closing InputStreamReader", $r7);
+
+        goto label23;
+
+     label15:
+        $r13 := @caughtexception;
+
+     label16:
+        if r30 == null goto label17;
+
+        virtualinvoke r30.<java.io.BufferedReader: void close()>();
+
+     label17:
+        goto label19;
+
+     label18:
+        $r23 := @caughtexception;
+
+        $r25 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r24 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r25.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r24, "Error closing BufferedReader", $r23);
+
+     label19:
+        if r31 == null goto label20;
+
+        virtualinvoke r31.<java.io.InputStreamReader: void close()>();
+
+     label20:
+        goto label22;
+
+     label21:
+        $r10 := @caughtexception;
+
+        $r12 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r11 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r12.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r11, "Error closing InputStreamReader", $r10);
+
+     label22:
+        throw $r13;
+
+     label23:
+        r42 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0;
+
+        r42.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45: java.lang.String dataBad> = r29;
+
+        r43 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0;
+
+        specialinvoke r43.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45: void badSink()>();
+
+        return;
+
+        catch java.io.IOException from label02 to label03 with label04;
+        catch java.io.IOException from label05 to label06 with label07;
+        catch java.io.IOException from label01 to label02 with label08;
+        catch java.io.IOException from label09 to label10 with label11;
+        catch java.io.IOException from label12 to label13 with label14;
+        catch java.lang.Throwable from label01 to label02 with label15;
+        catch java.lang.Throwable from label08 to label09 with label15;
+        catch java.io.IOException from label16 to label17 with label18;
+        catch java.io.IOException from label19 to label20 with label21;
+        catch java.lang.Throwable from label15 to label16 with label15;
+    }
+
+    public void good() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__URLConnection_45 r0;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45 r1;
+
+        r0 := @this: CWE78_OS_Command_Injection__URLConnection_45;
+
+        r1 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0;
+
+        specialinvoke r1.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45: void goodG2B()>();
+
+        return;
+    }
+
+    private void goodG2BSink() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__URLConnection_45 r0;
+        java.lang.String r1, $r3, $r4, $r9, r10;
+        java.lang.Process r2;
+        int $i0;
+        java.lang.Runtime $r5;
+        java.lang.StringBuilder $r7, $r8, r11;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45 r12;
+
+        r0 := @this: CWE78_OS_Command_Injection__URLConnection_45;
+
+        r12 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0;
+
+        r1 = r12.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45: java.lang.String dataGoodG2B>;
+
+        $r3 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r4 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r10 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r10 = "/bin/ls ";
+
+     label2:
+        $r5 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        r11 = new java.lang.StringBuilder;
+
+        specialinvoke r11.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r10);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r2 = virtualinvoke $r5.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r9);
+
+        virtualinvoke r2.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    private void goodG2B() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__URLConnection_45 r0;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45 r2, r3;
+
+        r0 := @this: CWE78_OS_Command_Injection__URLConnection_45;
+
+        r2 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0;
+
+        r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45: java.lang.String dataGoodG2B> = "foo";
+
+        r3 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45) r0;
+
+        specialinvoke r3.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45: void goodG2BSink()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[]) throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException
+    {
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        staticinvoke <testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__URLConnection_45: void mainFromParent(java.lang.String[])>(r0);
+
+        return;
+    }
+}

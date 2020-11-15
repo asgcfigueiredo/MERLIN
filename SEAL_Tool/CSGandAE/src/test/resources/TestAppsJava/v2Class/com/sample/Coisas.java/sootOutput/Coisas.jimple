@@ -1,0 +1,76 @@
+public class Coisas extends java.lang.Object
+{
+    private java.lang.String file;
+
+    public void <init>()
+    {
+        Coisas r0;
+        java.io.IOException $r8;
+        java.io.PrintStream $r9;
+        java.lang.String r10;
+        java.io.File r13;
+        java.io.FileInputStream r14;
+        java.io.InputStreamReader r15;
+        java.io.BufferedReader r16;
+        com.sample.Coisas r17;
+
+        r0 := @this: Coisas;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        r13 = new java.io.File;
+
+        specialinvoke r13.<java.io.File: void <init>(java.lang.String)>("tainted.txt");
+
+        r10 = "Hello";
+
+     label1:
+        r14 = new java.io.FileInputStream;
+
+        specialinvoke r14.<java.io.FileInputStream: void <init>(java.io.File)>(r13);
+
+        r15 = new java.io.InputStreamReader;
+
+        specialinvoke r15.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.lang.String)>(r14, "UTF-8");
+
+        r16 = new java.io.BufferedReader;
+
+        specialinvoke r16.<java.io.BufferedReader: void <init>(java.io.Reader)>(r15);
+
+        r10 = virtualinvoke r16.<java.io.BufferedReader: java.lang.String readLine()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $r8 := @caughtexception;
+
+        $r9 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $r9.<java.io.PrintStream: void println(java.lang.String)>("Error with stream reading");
+
+     label4:
+        r17 = (com.sample.Coisas) r0;
+
+        r17.<com.sample.Coisas: java.lang.String file> = r10;
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public java.lang.String getFile()
+    {
+        Coisas r0;
+        java.lang.String $r1;
+        com.sample.Coisas r2;
+
+        r0 := @this: Coisas;
+
+        r2 = (com.sample.Coisas) r0;
+
+        $r1 = r2.<com.sample.Coisas: java.lang.String file>;
+
+        return $r1;
+    }
+}

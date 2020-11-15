@@ -1,0 +1,93 @@
+public class GetNameServlet extends javax.servlet.http.HttpServlet
+{
+
+    public void <init>()
+    {
+        GetNameServlet r0;
+
+        r0 := @this: GetNameServlet;
+
+        specialinvoke r0.<javax.servlet.http.HttpServlet: void <init>()>();
+
+        return;
+    }
+
+    protected void doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException, java.io.IOException
+    {
+        GetNameServlet r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.String r3, r5, $r15, r17;
+        java.util.Set $r10;
+        boolean $z0;
+        java.lang.Object $r11, $r14;
+        java.lang.StringBuilder $r13, $r16, r21;
+        java.util.Iterator r18;
+        javax.servlet.RequestDispatcher r19;
+        java.util.HashMap r20;
+        javax.servlet.ServletRequest r22;
+        javax.servlet.ServletResponse r23;
+
+        r0 := @this: GetNameServlet;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getParameter(java.lang.String)>("name");
+
+        r20 = new java.util.HashMap;
+
+        specialinvoke r20.<java.util.HashMap: void <init>()>();
+
+        virtualinvoke r20.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("ola", "hello");
+
+        virtualinvoke r20.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("adeus", "goodbye");
+
+        virtualinvoke r20.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("nome", r3);
+
+        r17 = "Hello !!\n How are you ";
+
+        $r10 = virtualinvoke r20.<java.util.HashMap: java.util.Set keySet()>();
+
+        r18 = interfaceinvoke $r10.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r18.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label2;
+
+        $r11 = interfaceinvoke r18.<java.util.Iterator: java.lang.Object next()>();
+
+        r5 = (java.lang.String) $r11;
+
+        r21 = new java.lang.StringBuilder;
+
+        specialinvoke r21.<java.lang.StringBuilder: void <init>()>();
+
+        $r13 = virtualinvoke r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r17);
+
+        $r14 = virtualinvoke r20.<java.util.HashMap: java.lang.Object get(java.lang.Object)>(r5);
+
+        $r15 = (java.lang.String) $r14;
+
+        $r16 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r15);
+
+        r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label1;
+
+     label2:
+        interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: void setAttribute(java.lang.String,java.lang.Object)>("quote", r17);
+
+        r19 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: javax.servlet.RequestDispatcher getRequestDispatcher(java.lang.String)>("result_name.jsp");
+
+        r22 = (javax.servlet.ServletRequest) r1;
+
+        r23 = (javax.servlet.ServletResponse) r2;
+
+        interfaceinvoke r19.<javax.servlet.RequestDispatcher: void forward(javax.servlet.ServletRequest,javax.servlet.ServletResponse)>(r22, r23);
+
+        return;
+    }
+}

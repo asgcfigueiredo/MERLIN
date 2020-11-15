@@ -1,0 +1,149 @@
+[
+	{
+		"Attribute Category": "Extract Substring",
+	 	"Instructions": ["java.lang.String.split", "java.lang.StringBuilder.substring", "java.lang.String.subSequence", "java.lang.String.charAt", 
+	 				  "java.util.regex.Matcher.group", "org.apache.commons.lang3.StringUtils.chomp", "org.apache.commons.lang3.StringUtils.chop", 
+	 				  "org.apache.commons.lang3.StringUtils.splitByCharacterType", "org.apache.commons.lang3.StringUtils.splitByCharacterTypeCamelCase", 
+	 				  "org.apache.commons.lang3.StringUtils.splitByWholeSeparator", "org.apache.commons.lang3.StringUtils.splitByWholeSeparatorPreserveAllTokens", 
+	 				  "org.apache.commons.lang3.StringUtils.splitPreserveAllTokens", "org.apache.commons.lang3.StringUtils.stripEnd",
+	 				  "org.apache.commons.lang3.StringUtils.stripStart", "org.apache.commons.lang3.StringUtils.substring", 
+	 				  "org.apache.commons.lang3.StringUtils.substringAfter", "org.apache.commons.lang3.StringUtils.substringAfterLast", 
+	 				  "org.apache.commons.lang3.StringUtils.substringBefore", "org.apache.commons.lang3.StringUtils.substringBeforeLast"
+	 				  "org.apache.commons.lang3.StringUtils.substringBetween", "org.apache.commons.lang3.StringUtils.difference",
+	 				  "org.apache.commons.lang3.StringUtils.remove", "org.apache.commons.lang3.StringUtils.removeAll", 
+	 				  "org.apache.commons.lang3.StringUtils.removeEnd",  "org.apache.commons.lang3.StringUtils.removeEndIgnoreCase", 
+	 				  "org.apache.commons.lang3.StringUtils.removeFirst", "org.apache.commons.lang3.StringUtils.removeIgnoreCase", 
+	 				  "org.apache.commons.lang3.StringUtils.removePattern", "org.apache.commons.lang3.StringUtils.removeStart", 
+	 				  "org.apache.commons.lang3.StringUtils.removeStartIgnoreCase", "org.apache.commons.lang.StringUtils.chomp", 
+	 				  "org.apache.commons.lang.StringUtils.chompLast", "org.apache.commons.lang.StringUtils.chop", 
+	 				  "org.apache.commons.lang.StringUtils.split", "org.apache.commons.lang.StringUtils.splitByCharacterType",
+	 				  "org.apache.commons.lang.StringUtils.splitByCharacterTypeCamelCase", "org.apache.commons.lang.StringUtils.splitByWholeSeparator", 
+	 				  "org.apache.commons.lang.StringUtils.splitByWholeSeparatorPreserveAllTokens", "org.apache.commons.lang.StringUtils.splitPreserveAllTokens", 
+	 				  "org.apache.commons.lang.StringUtils.strip", "org.apache.commons.lang.StringUtils.stripAll", "org.apache.commons.lang.StringUtils.stripEnd", 
+	 				  "org.apache.commons.lang.StringUtils.stripStart", "org.apache.commons.lang.StringUtils.substring", "org.apache.commons.lang.StringUtils.",
+	 				  "org.apache.commons.lang.StringUtils.substringAfter", "org.apache.commons.lang.StringUtils.left",
+	 				  "org.apache.commons.lang.StringUtils.substringBeforeLast", "org.apache.commons.lang.StringUtils.substringBefore",
+	 				  "org.apache.commons.lang.StringUtils.substringBetween", "org.apache.commons.lang.StringUtils.right",
+	 				  "org.apache.commons.lang.StringUtils.mid", "org.apache.commons.lang.StringUtils.remove", 
+	 				  "org.apache.commons.lang.StringUtils.removeEnd", "org.apache.commons.lang.StringUtils.removeStart", 
+	 				  "org.apache.commons.lang.StringUtils.removeStartIgnoreCase", "java.lang.StringBuilder.delete", "java.lang.StringBuilder.substring"]
+	},
+	{
+		"Attribute Category": "String Concatenation",
+		"Instructions": ["java.lang.StringBuilder.append","java.lang.StringBuilder.insert", "java.lang.String.concat", "java.lang.String.format", 
+					"java.lang.String.join", "java.lang.StringBuffer.append", "java.lang.StringBuffer.insert", 
+					"org.apache.commons.lang3.StringUtils.appendIfMissing", "org.apache.commons.lang3.StringUtils.appendIfMissingIgnoreCase", 
+					"org.apache.commons.lang3.StringUtils.join", "org.apache.commons.lang3.StringUtils.prependIfMissing", 
+					"org.apache.commons.lang3.StringUtils.prependIfMissingIgnoreCase", "org.apache.commons.lang.StringUtils.join"] 
+	},
+	{
+		"Attribute Category": "Replace String",
+		"Instructions": ["java.lang.String.replace", "java.lang.String.replaceAll", "java.lang.String.replaceFirst", 
+					 "org.apache.commons.lang3.StringUtils.replace", "org.apache.commons.lang3.StringUtils.replaceAll", 
+					 "org.apache.commons.lang3.StringUtils.replaceChars", "org.apache.commons.lang3.StringUtils.replaceEach"
+					 "org.apache.commons.lang3.StringUtils.replaceEachRepeatedly", "org.apache.commons.lang3.StringUtils.replaceFirst", 
+					 "org.apache.commons.lang3.StringUtils.replaceIgnoreCase", "org.apache.commons.lang3.StringUtils.replaceOnce", 
+					 "org.apache.commons.lang3.StringUtils.replaceOnceIgnoreCase", "org.apache.commons.lang3.StringUtils.replacePattern", 
+					 "org.apache.commons.lang3.StringUtils.overlay", "org.apache.commons.lang.StringUtils.replace", 
+					 "org.apache.commons.lang.StringUtils.replaceChars", "org.apache.commons.lang.StringUtils.replaceEach", 
+					 "org.apache.commons.lang.StringUtils.replaceEachRepeatedly", "org.apache.commons.lang.StringUtils.replaceOnce", 
+					 "org.apache.commons.lang.StringUtils.overlay", "org.apache.commons.lang.StringUtils.overlayString", 
+					 "java.util.regex.Matcher.appendReplacement", "java.util.regex.Matcher.replaceAll", "java.util.regex.Matcher.replaceFirst"] 
+	},
+	{
+		"Attribute Category": "Remove Whitespace", 
+		"Instructions": ["org.apache.commons.lang3.StringUtils.deleteWhitespace", "org.apache.commons.lang3.StringUtils.trim", 
+					 "org.apache.commons.lang3.StringUtils.trimToEmpty", "org.apache.commons.lang3.StringUtils.trimToNull", 
+					 "org.apache.commons.lang3.StringUtils.stripAll", "org.apache.commons.lang3.StringUtils.stripToEmpty", 
+					 "org.apache.commons.lang.StringUtils.deleteSpaces", "org.apache.commons.lang.StringUtils.deleteWhitespace", 
+					 "org.apache.commons.lang.StringUtils.trim", "org.apache.commons.lang.StringUtils.trimToEmpty", 
+					 "org.apache.commons.lang.StringUtils.trimToNull", "org.apache.commons.lang.StringUtils.strip", 
+					 "org.apache.commons.lang.StringUtils.stripAll", "org.apache.commons.lang.StringUtils.stripEnd", 
+					 "org.apache.commons.lang.StringUtils.stripStart", "org.apache.commons.lang.StringUtils.stripToEmpty", 
+					 "org.apache.commons.lang.StringUtils.stripToNull"]
+	},
+	{
+		"Attribute Category": "Type Checking",
+		"Instructions": ["instanceof", "java.lang.Object.getClass", "java.lang.Class.isArray", "java.lang.Class.isInstance", "java.lang.Class.isLocalClass", 
+					"java.lang.Class.isPrimitive", "org.apache.commons.lang3.StringUtils.isNumeric", "org.apache.commons.lang3.StringUtils.isNumericSpace",
+					"org.apache.commons.lang.StringUtils.isNumeric", "org.apache.commons.lang.StringUtils.isNumericSpace", 
+					"org.apache.commons.lang3.math.NumberUtils.isCreatable"]
+	},
+	{
+		"Attribute Category": "IsSet Source",
+		"Instructions": ["isSetSource", "java.util.Objects.isNull", "java.util.Objects.nonNull"]
+	}, 
+	{
+		"Attribute Category": "Pattern Control",
+		"Instructions": ["java.util.regex.Pattern.matches", "java.lang.String.compareTo", "java.lang.String.compareToIgnoreCase", 
+						"java.lang.String.equals", "java.lang.String.equalsIgnoreCase", "java.lang.String.matches", "java.lang.String.regionMatches", 
+						"java.lang.String.startsWith", "org.apache.commons.lang3.StringUtils.compare", "org.apache.commons.lang3.StringUtils.compareIgnoreCase", 
+						"org.apache.commons.lang3.StringUtils.contains", "org.apache.commons.lang3.StringUtils.containsAny", 
+						"org.apache.commons.lang3.StringUtils.containsIgnoreCase", "org.apache.commons.lang3.StringUtils.containsNone", 
+						"org.apache.commons.lang3.StringUtils.containsOnly", "org.apache.commons.lang3.StringUtils.countMatches", 
+						"org.apache.commons.lang3.StringUtils.indexOf", "org.apache.commons.lang3.StringUtils.indexOfAny", 
+						"org.apache.commons.lang3.StringUtils.indexOfAnyBut", "org.apache.commons.lang3.StringUtils.indexOfDifference", 
+						"org.apache.commons.lang3.StringUtils.indexOfIgnoreCase", "org.apache.commons.lang.StringUtils.contains", 
+						"org.apache.commons.lang.StringUtils.containsAny", "org.apache.commons.lang.StringUtils.containsIgnoreCase", 
+						"org.apache.commons.lang.StringUtils.containsNone", "org.apache.commons.lang.StringUtils.containsOnly", 
+						"org.apache.commons.lang.StringUtils.countMatches", "org.apache.commons.lang.StringUtils.equals", 
+						"org.apache.commons.lang.StringUtils.equalsIgnoreCase", "org.apache.commons.lang.StringUtils.indexOf", 
+						"org.apache.commons.lang.StringUtils.indexOfAny", "org.apache.commons.lang.StringUtils.indexOfAnyBut", 
+						"org.apache.commons.lang.StringUtils.indexOfDifference", "org.apache.commons.lang.StringUtils.indexOfIgnoreCase", 
+						"java.util.regex.Matcher.matches", "java.util.regex.Matcher.lookingAt", "java.util.regex.Matcher.find"]
+	},
+	{
+		"Attribute Category": "Whitelist",
+		"Instructions": ["org.jsoup.safety.Cleaner.isValid", "org.jsoup.safety.Cleaner.isValidBodyHtml​", "org.jsoup.Jsoup.isValid​"]
+	},
+	{
+		"Attribute Category": "Error",
+		"Instructions": ["java.lang.System.exit", "throw", "return"]
+	}, 
+	{
+		"Attribute Category": "SQL Query - Agg Function",
+		"Instructions": ["AVG", "BIT_AND", "BIT_OR", "BIT_XOR", "COUNT", "GROUP_CONCAT", "JSON_ARRAYAGG", "JSON_OBJECTAGG", "MAX", "MIN", "STD", "STDDEV", 
+						 "STDDEV_POP", "STDDEV_SAMP", "SUM", "VAR_POP", "VAR_SAMP", "VARIANCE"]
+	},
+	{
+		"Attribute Category": "SQL Query - From clause",
+		"Instructions": ["FROM"]
+	},
+	{
+		"Attribute Category": "SQL Query - Numeric Entry",
+		"Instructions": ["REGEXP"]
+	},
+	{
+		"Attribute Category": "SQL Query - Complex Query",
+		"Instructions": ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "FULL OUTER JOIN", "SELF JOIN", "UNION", "(SELECT"]
+	},
+	{
+		"Attribute Category": "Encoding",
+		"Instructions": ["java.nio.charset.Charset.encode", "java.net.URLEncoder.encode", "java.util.Base64.Encoder.encode", 
+						"java.util.Base64.Encoder.encodeToString"]
+	},
+	{
+		"Attribute Category": "Encryption",
+		"Instructions": ["javax.crypto.Cipher.doFinal",  "java.security.MessageDigest.digest"]
+	}, 
+	{
+		"Attribute Category": "Numeric conversion", 
+		"Instructions": ["java.lang.Integer.doubleValue", "java.lang.Integer.floatValue", "java.lang.Integer.intValue", "java.lang.Integer.longValue", 
+						"java.lang.Integer", "java.lang.Integer.parseInt", "java.lang.Integer.shortValue", "java.lang.Integer.valueOfvalueOf", 
+						"java.lang.Double.doubleValue", "java.lang.Double.floatValue", "java.lang.Double.longValue", "java.lang.Double.shortValue",
+						"java.lang.Double.parseDouble", "java.lang.Float.floatValue", "java.lang.Float.intValue", "java.lang.Float.longValue", 
+						"java.lang.Float.parseFloat", "java.lang.Float.shortValue", "java.lang.Float.valueOf", "java.lang.Double.valueOf",
+						"java.lang.Short.doubleValue", "java.lang.Short.floatValue", "java.lang.Short.intValue", "java.lang.Short.longValue", 
+						"java.lang.Short.parseShort", "java.lang.Short.shortValue", "java.lang.Short.valueOf", 
+						"org.apache.commons.lang3.math.NumberUtils.createBigDecimal", "org.apache.commons.lang3.math.NumberUtils.createBigInteger", 
+						"org.apache.commons.lang3.math.NumberUtils.createDouble", "org.apache.commons.lang3.math.NumberUtils.createFloat", 
+						"org.apache.commons.lang3.math.NumberUtils.createInteger", "org.apache.commons.lang3.math.NumberUtils.createLong", 
+						"org.apache.commons.lang3.math.NumberUtils.createNumber", "org.apache.commons.lang3.math.NumberUtils.toDouble", 
+						"org.apache.commons.lang3.math.NumberUtils.toFloat", "org.apache.commons.lang3.math.NumberUtils.toInt", 
+						"org.apache.commons.lang3.math.NumberUtils.toScaledBigDecimal", "org.apache.commons.lang3.math.NumberUtils.toShort"]
+	}
+	{
+		"Attribute Category": "Add Char", 
+		"Instructions": []
+	}
+]

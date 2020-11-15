@@ -1,0 +1,415 @@
+public final class resultName extends org.apache.jasper.runtime.HttpJspBase implements org.apache.jasper.runtime.JspSourceDependent, org.apache.jasper.runtime.JspSourceImports
+{
+    private static final javax.servlet.jsp.JspFactory _jspxFactory;
+    private static java.util.Map _jspx_dependants;
+    private static final java.util.Set _jspx_imports_packages;
+    private static final java.util.Set _jspx_imports_classes;
+    private volatile javax.el.ExpressionFactory _el_expressionfactory;
+    private volatile org.apache.tomcat.InstanceManager _jsp_instancemanager;
+
+    static void <clinit>()
+    {
+        javax.servlet.jsp.JspFactory $r0;
+        java.util.HashSet $r1;
+        java.util.Set $r2, $r3, $r4;
+
+        $r0 = staticinvoke <javax.servlet.jsp.JspFactory: javax.servlet.jsp.JspFactory getDefaultFactory()>();
+
+        <org.apache.jsp.resultName_jsp: javax.servlet.jsp.JspFactory _jspxFactory> = $r0;
+
+        $r1 = new java.util.HashSet;
+
+        specialinvoke $r1.<java.util.HashSet: void <init>()>();
+
+        <org.apache.jsp.resultName_jsp: java.util.Set _jspx_imports_packages> = $r1;
+
+        $r2 = <org.apache.jsp.resultName_jsp: java.util.Set _jspx_imports_packages>;
+
+        interfaceinvoke $r2.<java.util.Set: boolean add(java.lang.Object)>("javax.servlet");
+
+        $r3 = <org.apache.jsp.resultName_jsp: java.util.Set _jspx_imports_packages>;
+
+        interfaceinvoke $r3.<java.util.Set: boolean add(java.lang.Object)>("javax.servlet.http");
+
+        $r4 = <org.apache.jsp.resultName_jsp: java.util.Set _jspx_imports_packages>;
+
+        interfaceinvoke $r4.<java.util.Set: boolean add(java.lang.Object)>("javax.servlet.jsp");
+
+        <org.apache.jsp.resultName_jsp: java.util.Set _jspx_imports_classes> = null;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        resultName r0;
+
+        r0 := @this: resultName;
+
+        specialinvoke r0.<org.apache.jasper.runtime.HttpJspBase: void <init>()>();
+
+        return;
+    }
+
+    public java.util.Map getDependants()
+    {
+        resultName r0;
+        java.util.Map $r1;
+
+        r0 := @this: resultName;
+
+        $r1 = <org.apache.jsp.resultName_jsp: java.util.Map _jspx_dependants>;
+
+        return $r1;
+    }
+
+    public java.util.Set getPackageImports()
+    {
+        resultName r0;
+        java.util.Set $r1;
+
+        r0 := @this: resultName;
+
+        $r1 = <org.apache.jsp.resultName_jsp: java.util.Set _jspx_imports_packages>;
+
+        return $r1;
+    }
+
+    public java.util.Set getClassImports()
+    {
+        resultName r0;
+        java.util.Set $r1;
+
+        r0 := @this: resultName;
+
+        $r1 = <org.apache.jsp.resultName_jsp: java.util.Set _jspx_imports_classes>;
+
+        return $r1;
+    }
+
+    public javax.el.ExpressionFactory _jsp_getExpressionFactory()
+    {
+        resultName r0;
+        javax.el.ExpressionFactory $r2, $r3, $r5, $r10;
+        javax.servlet.jsp.JspFactory $r6;
+        javax.servlet.ServletConfig $r7;
+        javax.servlet.ServletContext $r8;
+        javax.servlet.jsp.JspApplicationContext $r9;
+        java.lang.Throwable $r11;
+        org.apache.jsp.resultName_jsp r12, r13, r14, r15, r16;
+
+        r0 := @this: resultName;
+
+        r12 = (org.apache.jsp.resultName_jsp) r0;
+
+        $r2 = r12.<org.apache.jsp.resultName_jsp: javax.el.ExpressionFactory _el_expressionfactory>;
+
+        if $r2 != null goto label6;
+
+        entermonitor r0;
+
+     label1:
+        r13 = (org.apache.jsp.resultName_jsp) r0;
+
+        $r5 = r13.<org.apache.jsp.resultName_jsp: javax.el.ExpressionFactory _el_expressionfactory>;
+
+        if $r5 != null goto label2;
+
+        $r6 = <org.apache.jsp.resultName_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        r14 = (org.apache.jsp.resultName_jsp) r0;
+
+        $r7 = virtualinvoke r14.<org.apache.jsp.resultName_jsp: javax.servlet.ServletConfig getServletConfig()>();
+
+        $r8 = interfaceinvoke $r7.<javax.servlet.ServletConfig: javax.servlet.ServletContext getServletContext()>();
+
+        $r9 = virtualinvoke $r6.<javax.servlet.jsp.JspFactory: javax.servlet.jsp.JspApplicationContext getJspApplicationContext(javax.servlet.ServletContext)>($r8);
+
+        $r10 = interfaceinvoke $r9.<javax.servlet.jsp.JspApplicationContext: javax.el.ExpressionFactory getExpressionFactory()>();
+
+        r15 = (org.apache.jsp.resultName_jsp) r0;
+
+        r15.<org.apache.jsp.resultName_jsp: javax.el.ExpressionFactory _el_expressionfactory> = $r10;
+
+     label2:
+        exitmonitor r0;
+
+     label3:
+        goto label6;
+
+     label4:
+        $r11 := @caughtexception;
+
+        exitmonitor r0;
+
+     label5:
+        throw $r11;
+
+     label6:
+        r16 = (org.apache.jsp.resultName_jsp) r0;
+
+        $r3 = r16.<org.apache.jsp.resultName_jsp: javax.el.ExpressionFactory _el_expressionfactory>;
+
+        return $r3;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public org.apache.tomcat.InstanceManager _jsp_getInstanceManager()
+    {
+        resultName r0;
+        org.apache.tomcat.InstanceManager $r2, $r3, $r5, $r7;
+        javax.servlet.ServletConfig $r6;
+        java.lang.Throwable $r8;
+        org.apache.jsp.resultName_jsp r9, r10, r11, r12, r13;
+
+        r0 := @this: resultName;
+
+        r9 = (org.apache.jsp.resultName_jsp) r0;
+
+        $r2 = r9.<org.apache.jsp.resultName_jsp: org.apache.tomcat.InstanceManager _jsp_instancemanager>;
+
+        if $r2 != null goto label6;
+
+        entermonitor r0;
+
+     label1:
+        r10 = (org.apache.jsp.resultName_jsp) r0;
+
+        $r5 = r10.<org.apache.jsp.resultName_jsp: org.apache.tomcat.InstanceManager _jsp_instancemanager>;
+
+        if $r5 != null goto label2;
+
+        r11 = (org.apache.jsp.resultName_jsp) r0;
+
+        $r6 = virtualinvoke r11.<org.apache.jsp.resultName_jsp: javax.servlet.ServletConfig getServletConfig()>();
+
+        $r7 = staticinvoke <org.apache.jasper.runtime.InstanceManagerFactory: org.apache.tomcat.InstanceManager getInstanceManager(javax.servlet.ServletConfig)>($r6);
+
+        r12 = (org.apache.jsp.resultName_jsp) r0;
+
+        r12.<org.apache.jsp.resultName_jsp: org.apache.tomcat.InstanceManager _jsp_instancemanager> = $r7;
+
+     label2:
+        exitmonitor r0;
+
+     label3:
+        goto label6;
+
+     label4:
+        $r8 := @caughtexception;
+
+        exitmonitor r0;
+
+     label5:
+        throw $r8;
+
+     label6:
+        r13 = (org.apache.jsp.resultName_jsp) r0;
+
+        $r3 = r13.<org.apache.jsp.resultName_jsp: org.apache.tomcat.InstanceManager _jsp_instancemanager>;
+
+        return $r3;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public void _jspInit()
+    {
+        resultName r0;
+
+        r0 := @this: resultName;
+
+        return;
+    }
+
+    public void _jspDestroy()
+    {
+        resultName r0;
+
+        r0 := @this: resultName;
+
+        return;
+    }
+
+    public void _jspService(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.io.IOException, javax.servlet.ServletException
+    {
+        resultName r0;
+        javax.servlet.http.HttpServletRequest r1;
+        javax.servlet.http.HttpServletResponse r2;
+        java.lang.String r3, $r7, $r9, $r10;
+        javax.servlet.jsp.PageContext r4, r20;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5;
+        javax.servlet.jsp.JspFactory $r8, $r15, $r17, $r21;
+        javax.servlet.DispatcherType $r11, $r12;
+        java.io.IOException $r13;
+        java.lang.Throwable $r16, $r18, r30;
+        int $i0;
+        javax.servlet.jsp.JspWriter r19, r22;
+        java.lang.Object $r23, $r24;
+        javax.servlet.ServletException r26;
+        javax.servlet.Servlet r27;
+        javax.servlet.ServletRequest r28;
+        javax.servlet.ServletResponse r29;
+
+        r0 := @this: resultName;
+
+        r1 := @parameter0: javax.servlet.http.HttpServletRequest;
+
+        r2 := @parameter1: javax.servlet.http.HttpServletResponse;
+
+        r3 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.String getMethod()>();
+
+        $r7 = "GET";
+
+        $z0 = virtualinvoke $r7.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z0 != 0 goto label01;
+
+        $r9 = "POST";
+
+        $z1 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z1 != 0 goto label01;
+
+        $r10 = "HEAD";
+
+        $z2 = virtualinvoke $r10.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z2 != 0 goto label01;
+
+        $r11 = <javax.servlet.DispatcherType: javax.servlet.DispatcherType ERROR>;
+
+        $r12 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: javax.servlet.DispatcherType getDispatcherType()>();
+
+        $z3 = virtualinvoke $r11.<javax.servlet.DispatcherType: boolean equals(java.lang.Object)>($r12);
+
+        if $z3 != 0 goto label01;
+
+        interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: void sendError(int,java.lang.String)>(405, "JSPs only permit GET POST or HEAD");
+
+        return;
+
+     label01:
+        r19 = null;
+
+        r20 = null;
+
+     label02:
+        interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: void setContentType(java.lang.String)>("text/html;charset=UTF-8");
+
+        $r21 = <org.apache.jsp.resultName_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        r27 = (javax.servlet.Servlet) r0;
+
+        r28 = (javax.servlet.ServletRequest) r1;
+
+        r29 = (javax.servlet.ServletResponse) r2;
+
+        r4 = virtualinvoke $r21.<javax.servlet.jsp.JspFactory: javax.servlet.jsp.PageContext getPageContext(javax.servlet.Servlet,javax.servlet.ServletRequest,javax.servlet.ServletResponse,java.lang.String,boolean,int,boolean)>(r27, r28, r29, null, 1, 8192, 1);
+
+        r20 = r4;
+
+        virtualinvoke r4.<javax.servlet.jsp.PageContext: javax.servlet.ServletContext getServletContext()>();
+
+        virtualinvoke r4.<javax.servlet.jsp.PageContext: javax.servlet.ServletConfig getServletConfig()>();
+
+        virtualinvoke r4.<javax.servlet.jsp.PageContext: javax.servlet.http.HttpSession getSession()>();
+
+        r22 = virtualinvoke r4.<javax.servlet.jsp.PageContext: javax.servlet.jsp.JspWriter getOut()>();
+
+        r19 = r22;
+
+        virtualinvoke r22.<javax.servlet.jsp.JspWriter: void write(java.lang.String)>("\r\n\r\n<html>\r\n<head>\r\n    <title>The Random Sentence</title>\r\n</head>\r\n<body>\r\n<h1>This is your random sentence:   </h1>\r\n");
+
+        $r23 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.Object getAttribute(java.lang.String)>("greets");
+
+        virtualinvoke r22.<javax.servlet.jsp.JspWriter: void println(java.lang.Object)>($r23);
+
+        $r24 = interfaceinvoke r1.<javax.servlet.http.HttpServletRequest: java.lang.Object getAttribute(java.lang.String)>("quote");
+
+        virtualinvoke r22.<javax.servlet.jsp.JspWriter: void println(java.lang.Object)>($r24);
+
+        virtualinvoke r22.<javax.servlet.jsp.JspWriter: void write(java.lang.String)>("\r\n</body>\r\n</html>\r\n");
+
+     label03:
+        goto label13;
+
+     label04:
+        $r18 := @caughtexception;
+
+        $z4 = $r18 instanceof javax.servlet.jsp.SkipPageException;
+
+        if $z4 != 0 goto label11;
+
+        if r19 == null goto label09;
+
+        $i0 = virtualinvoke r19.<javax.servlet.jsp.JspWriter: int getBufferSize()>();
+
+        if $i0 == 0 goto label09;
+
+     label05:
+        $z5 = interfaceinvoke r2.<javax.servlet.http.HttpServletResponse: boolean isCommitted()>();
+
+        if $z5 == 0 goto label06;
+
+        virtualinvoke r19.<javax.servlet.jsp.JspWriter: void flush()>();
+
+        goto label09;
+
+     label06:
+        virtualinvoke r19.<javax.servlet.jsp.JspWriter: void clearBuffer()>();
+
+     label07:
+        goto label09;
+
+     label08:
+        $r13 := @caughtexception;
+
+     label09:
+        if r20 == null goto label10;
+
+        virtualinvoke r20.<javax.servlet.jsp.PageContext: void handlePageException(java.lang.Throwable)>($r18);
+
+        goto label11;
+
+     label10:
+        r26 = new javax.servlet.ServletException;
+
+        specialinvoke r26.<javax.servlet.ServletException: void <init>(java.lang.Throwable)>($r18);
+
+        r30 = (java.lang.Throwable) r26;
+
+        throw r30;
+
+     label11:
+        $r15 = <org.apache.jsp.resultName_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r15.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r20);
+
+        goto label14;
+
+     label12:
+        $r16 := @caughtexception;
+
+        $r17 = <org.apache.jsp.resultName_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r17.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r20);
+
+        throw $r16;
+
+     label13:
+        $r8 = <org.apache.jsp.resultName_jsp: javax.servlet.jsp.JspFactory _jspxFactory>;
+
+        virtualinvoke $r8.<javax.servlet.jsp.JspFactory: void releasePageContext(javax.servlet.jsp.PageContext)>(r4);
+
+     label14:
+        return;
+
+        catch java.lang.Throwable from label02 to label03 with label04;
+        catch java.io.IOException from label05 to label07 with label08;
+        catch java.lang.Throwable from label02 to label11 with label12;
+    }
+}

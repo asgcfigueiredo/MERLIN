@@ -1,0 +1,123 @@
+public class Coisas extends java.lang.Object
+{
+    private int intUnd;
+    private int intDef;
+    private java.lang.String name;
+
+    public void <init>(java.lang.String)
+    {
+        Coisas r0;
+        java.lang.String r1;
+        int $i0;
+        java.util.Random r4;
+        com.sample.Coisas r5, r6, r7;
+
+        r0 := @this: Coisas;
+
+        r1 := @parameter0: java.lang.String;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        r5 = (com.sample.Coisas) r0;
+
+        r5.<com.sample.Coisas: int intDef> = 1;
+
+        r4 = new java.util.Random;
+
+        specialinvoke r4.<java.util.Random: void <init>()>();
+
+        r6 = (com.sample.Coisas) r0;
+
+        r6.<com.sample.Coisas: java.lang.String name> = r1;
+
+        $i0 = virtualinvoke r4.<java.util.Random: int nextInt(int)>(2);
+
+        r7 = (com.sample.Coisas) r0;
+
+        r7.<com.sample.Coisas: int intUnd> = $i0;
+
+        return;
+    }
+
+    public java.lang.String randomSent()
+    {
+        Coisas r0;
+        int i0, $i1, $i2;
+        java.lang.StringBuilder $r2, $r3, $r5, $r7, $r8, $r10, $r12, $r13, $r15, r18, r19, r20;
+        java.lang.String $r4, $r9, $r14, r17;
+        com.sample.Coisas r21, r22, r23, r24, r25;
+
+        r0 := @this: Coisas;
+
+        r21 = (com.sample.Coisas) r0;
+
+        $i2 = r21.<com.sample.Coisas: int intDef>;
+
+        r22 = (com.sample.Coisas) r0;
+
+        $i1 = r22.<com.sample.Coisas: int intUnd>;
+
+        i0 = $i2 + $i1;
+
+        if i0 != 1 goto label1;
+
+        r18 = new java.lang.StringBuilder;
+
+        specialinvoke r18.<java.lang.StringBuilder: void <init>()>();
+
+        $r12 = virtualinvoke r18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("You are awesome ");
+
+        r23 = (com.sample.Coisas) r0;
+
+        $r14 = r23.<com.sample.Coisas: java.lang.String name>;
+
+        $r15 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r14);
+
+        r17 = virtualinvoke $r15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label3;
+
+     label1:
+        if i0 != 2 goto label2;
+
+        r19 = new java.lang.StringBuilder;
+
+        specialinvoke r19.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("U suck ");
+
+        r24 = (com.sample.Coisas) r0;
+
+        $r9 = r24.<com.sample.Coisas: java.lang.String name>;
+
+        $r10 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r9);
+
+        r17 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label3;
+
+     label2:
+        r20 = new java.lang.StringBuilder;
+
+        specialinvoke r20.<java.lang.StringBuilder: void <init>()>();
+
+        $r2 = virtualinvoke r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Hello ");
+
+        r25 = (com.sample.Coisas) r0;
+
+        $r4 = r25.<com.sample.Coisas: java.lang.String name>;
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        r17 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label3:
+        return r17;
+    }
+}

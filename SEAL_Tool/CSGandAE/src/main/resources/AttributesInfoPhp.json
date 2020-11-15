@@ -1,0 +1,73 @@
+[
+	{
+		"Attribute Category": "Extract Substring",
+	 	"Instructions": ["substr", "explode", "preg_split", "preg_grep", "preg_filter", "preg_quote"]
+	},
+	{
+		"Attribute Category": "String Concatenation",
+		"Instructions": ["concat", "assignConcat", "sprintf", "implode"] 
+	},
+	{
+		"Attribute Category": "Replace String",
+		"Instructions": ["str_replace", "substr_replace", "preg_replace"]
+	}, 
+	{
+		"Attribute Category": "Remove Whitespace",
+		"Instructions": ["trim"]
+	},
+	{
+		"Attribute Category": "Type Checking", 
+		"Instructions": ["gettype", "is_array", "is_bool", "is_callable", "is_countable", "is_double", "is_float", "is_int", "is_integer", "is_iterable", 
+					 "is_long", "is_null", "is_numeric", "is_object", "is_real", "is_resource", "is_scalar", "is_string", "settype"]
+	},
+	{
+		"Attribute Category": "IsSet Source",
+		"Instructions": ["isset_source"]
+	},
+	{
+		"Attribute Category": "Pattern Control",
+		"Instructions": ["preg_match", "preg_match_all", "strpos", "stristr", "strstr"]
+	},
+	{
+		"Attribute Category": "Whitelist",
+		"Instructions": ["filter_var", "in_array"]
+	},
+	{
+		"Attribute Category": "Error",
+		"Instructions": ["throw Exception", "throw", "return"]
+	},
+	{
+		"Attribute Category": "SQL Query - Agg Function",
+		"Instructions": ["AVG", "BIT_AND", "BIT_OR", "BIT_XOR", "COUNT", "GROUP_CONCAT", "JSON_ARRAYAGG", "JSON_OBJECTAGG", "MAX", "MIN", "STD", "STDDEV", 
+						 "STDDEV_POP", "STDDEV_SAMP", "SUM", "VAR_POP", "VAR_SAMP", "VARIANCE"]
+	},
+	{
+		"Attribute Category": "SQL Query - From clause",
+		"Instructions": ["FROM"]
+	},
+	{
+		"Attribute Category": "SQL Query - Numeric Entry",
+		"Instructions": ["REGEXP"]
+	},
+	{
+		"Attribute Category": "SQL Query - Complex Query",
+		"Instructions": ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "FULL OUTER JOIN", "SELF JOIN", "UNION", "(SELECT"]
+	}, 
+	{
+		"Attribute Category": "Encoding",
+		"Instructions": ["utf8_encode", "htmlentities", "htmlspecialchars", "mysql_real_escape_string", "mysqli_real_escape_string", "http_build_query",
+						"rawurlencode"]
+	}, 
+	{
+		"Attribute Category": "Encryption",
+		"Instructions": ["crypt", "sha1", "hash", "hash_final", "hash_hmac", "md5"]
+	}, 
+	{
+		"Attribute Category": "Numeric conversion", 
+		"Instructions": ["intval", "floatval"]
+	}, 
+	{
+		"Attribute Category": "Add Char", 
+		"Instructions": ["addslashes", "addcslashes"]
+	}
+]

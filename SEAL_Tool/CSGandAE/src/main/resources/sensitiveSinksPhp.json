@@ -1,0 +1,69 @@
+[
+	{
+		"vulnerability": "SQL Injection - MySQL",
+		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_REQUEST", "$_SESSION", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", 
+					"fgets", "fread", "stream_get_contents", "exec", "shell_exec", "system"],
+		"sanitizers": ["mysql_escape_string", "mysql_real_escape_string", "mysqli_escape_string", "mysqli_real_escape_string", "mysqli::escape_string", 
+				   "mysqli::real_escape_string"],
+  		"sinks": ["mysql_query", "mysql_unbuffered_query", "mysql_db_query", "mysqli_query", "mysqli_real_query", "mysqli_master_query", "mysqli_multi_query",
+  			  "mysqli::query", "mysqli::multi_query", "mysqli::real_query"]
+  	}, 
+  	{
+  		"vulnerability": "SQL Injection - MySQL Statement",
+		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_REQUEST", "$_SESSION", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", 
+					"fgets", "fread", "stream_get_contents", "exec", "shell_exec", "system"],
+		"sanitizers": ["mysqli_stmt_bind_param", "mysqli_stmt::bind_param"],
+  		"sinks": ["mysqli_stmt_execute", "mysqli_execute", "mysqli_stmt::execute"]
+  	}, 
+  	{
+  		"vulnerability": "SQL Injection - DB2",
+		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_REQUEST", "$_SESSION", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", 
+					"fgets", "fread", "stream_get_contents", "exec", "shell_exec", "system"],
+		"sanitizers": ["db2_escape_string"],
+  		"sinks": ["db2_exec"]
+  	},
+  	{
+  		"vulnerability": "SQL Injection - PostgreSQL",
+		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_REQUEST", "$_SESSION", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", 
+					"fgets", "fread", "stream_get_contents", "exec", "shell_exec", "system"],
+		"sanitizers": ["pg_escape_string", "pg_escape_bytea"],
+  		"sinks": ["pg_query", "pg_send_query"]
+  	},
+	{
+		"vulnerability":"XSS",
+  		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_SESSION", "$_REQUEST", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", "$_FILES", 
+				"$_SERVERS", "$_SERVER", "shell_exec", "exec", "fgets", "fread", "stream_get_contents", "system", "file_get_contents"],
+		"sanitizers": ["htmlentities", "htmlspecialchars", "strip_tags", "urlencode"],				
+  		"sinks": ["echo", "print", "printf", "die", "trigger_error", "exit", "file_put_contents", "user_error"]
+  	},
+	{
+		"vulnerability": "RFI/LFI/DT",
+		"sanitizers": [],
+		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_SESSION", "$_REQUEST", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", "$_FILES",
+					"$_SERVERS", "$_SERVER", "shell_exec", "exec", "fgets", "fread", "stream_get_contents", "system"],
+		"sinks": ["fopen", "file_get_contents", "file", "copy", "unlink", "move_uploaded_file", "imagecreatefromgd2", "imagecreatefromgd2part", 
+			  "imagecreatefromgd", "imagecreatefromgif", "imagecreatefromjpeg", "imagecreatefrompng", "imagecreatefromstring", "imagecreatefromwbmp", 
+			  "imagecreatefromxbm", "imagecreatefromxpm", "require", "require_once", "include", "include_once", "http_redirect"]
+	},
+	{
+		"vulnerability": "SCD",
+		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_SESSION", "$_REQUEST", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", "$_FILES",
+					"$_SERVERS", "$_SERVER", "shell_exec", "exec", "fgets", "fread", "stream_get_contents", "system"],
+		"sanitizers": [],
+		"sinks": ["readfile"]
+	},
+
+	{
+		"vulnerability": "OSCI",
+		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_REQUEST", "$_SESSION", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", "$_FILES", 
+				"shell_exec", "exec", "fgets", "fread", "stream_get_contents", "system", "$_SERVER"],
+		"sanitizers":["escapeshellarg"],
+		"sinks": ["passthru", "system", "shell_exec", "exec", "pcntl_exec", "popen"]}
+
+	{
+		"vulnerability": "PHPCI",
+		"sources": ["$_GET", "$_POST", "$_COOKIE", "$_REQUEST", "HTTP_GET_VARS", "HTTP_POST_VARS", "HTTP_COOKIE_VARS", "HTTP_REQUEST_VARS", "$_FILES", 
+				"$_SERVERS", "$_SERVER", "$_SESSION", "shell_exec", "exec", "fgets", "fread", "stream_get_contents", "system"],
+		"sanitizers": [],
+		"sinks": ["eval"]}
+]

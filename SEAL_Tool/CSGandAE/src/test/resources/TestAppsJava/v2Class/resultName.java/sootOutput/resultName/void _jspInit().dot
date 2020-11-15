@@ -1,0 +1,7 @@
+digraph "void _jspInit()" {
+    label="void _jspInit()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [style=filled,fillcolor=lightgray,label="return",];
+    "0"->"1";
+}

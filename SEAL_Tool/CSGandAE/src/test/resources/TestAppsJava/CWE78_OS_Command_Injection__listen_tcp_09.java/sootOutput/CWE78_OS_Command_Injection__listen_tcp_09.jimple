@@ -1,0 +1,466 @@
+public class CWE78_OS_Command_Injection__listen_tcp_09 extends testcasesupport.AbstractTestCase
+{
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__listen_tcp_09 r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__listen_tcp_09;
+
+        specialinvoke r0.<testcasesupport.AbstractTestCase: void <init>()>();
+
+        return;
+    }
+
+    public void bad() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__listen_tcp_09 r0;
+        java.net.ServerSocket $r2, r52;
+        java.io.InputStreamReader $r3, r55;
+        java.io.InputStream $r4;
+        java.io.BufferedReader $r5, r54;
+        java.lang.Runtime $r6;
+        java.lang.StringBuilder $r7, $r8, $r9;
+        java.lang.String $r10, r51, $r69, $r70, r71;
+        java.lang.Throwable $r11;
+        java.io.IOException $r12, $r15, $r18, $r21, $r24, $r27, $r30, $r33, $r36, $r39, $r42, $r45, $r48;
+        java.util.logging.Level $r13, $r16, $r19, $r22, $r25, $r28, $r31, $r34, $r37, $r40, $r43, $r46, $r49;
+        java.util.logging.Logger $r14, $r17, $r20, $r23, $r26, $r29, $r32, $r35, $r38, $r41, $r44, $r47, $r50;
+        java.net.Socket r53;
+        int $i1;
+        java.lang.Process r72;
+
+        r0 := @this: CWE78_OS_Command_Injection__listen_tcp_09;
+
+        r51 = "";
+
+        r52 = null;
+
+        r53 = null;
+
+        r54 = null;
+
+        r55 = null;
+
+     label01:
+        $r2 = new java.net.ServerSocket;
+
+        specialinvoke $r2.<java.net.ServerSocket: void <init>(int)>(39543);
+
+        r52 = $r2;
+
+        r53 = virtualinvoke $r2.<java.net.ServerSocket: java.net.Socket accept()>();
+
+        $r3 = new java.io.InputStreamReader;
+
+        $r4 = virtualinvoke r53.<java.net.Socket: java.io.InputStream getInputStream()>();
+
+        specialinvoke $r3.<java.io.InputStreamReader: void <init>(java.io.InputStream,java.lang.String)>($r4, "UTF-8");
+
+        r55 = $r3;
+
+        $r5 = new java.io.BufferedReader;
+
+        specialinvoke $r5.<java.io.BufferedReader: void <init>(java.io.Reader)>($r3);
+
+        r54 = $r5;
+
+        r51 = virtualinvoke $r5.<java.io.BufferedReader: java.lang.String readLine()>();
+
+     label02:
+        if $r5 == null goto label03;
+
+        virtualinvoke $r5.<java.io.BufferedReader: void close()>();
+
+     label03:
+        goto label05;
+
+     label04:
+        $r12 := @caughtexception;
+
+        $r14 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r13 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r14.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r13, "Error closing BufferedReader", $r12);
+
+     label05:
+        if $r3 == null goto label06;
+
+        virtualinvoke $r3.<java.io.InputStreamReader: void close()>();
+
+     label06:
+        goto label08;
+
+     label07:
+        $r48 := @caughtexception;
+
+        $r50 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r49 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r50.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r49, "Error closing InputStreamReader", $r48);
+
+     label08:
+        if r53 == null goto label09;
+
+        virtualinvoke r53.<java.net.Socket: void close()>();
+
+     label09:
+        goto label11;
+
+     label10:
+        $r15 := @caughtexception;
+
+        $r17 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r16 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r17.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r16, "Error closing Socket", $r15);
+
+     label11:
+        if $r2 == null goto label12;
+
+        virtualinvoke $r2.<java.net.ServerSocket: void close()>();
+
+     label12:
+        goto label41;
+
+     label13:
+        $r30 := @caughtexception;
+
+        $r32 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r31 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r32.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r31, "Error closing ServerSocket", $r30);
+
+        goto label41;
+
+     label14:
+        $r39 := @caughtexception;
+
+        $r41 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r40 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r41.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r40, "Error with stream reading", $r39);
+
+     label15:
+        if r54 == null goto label16;
+
+        virtualinvoke r54.<java.io.BufferedReader: void close()>();
+
+     label16:
+        goto label18;
+
+     label17:
+        $r21 := @caughtexception;
+
+        $r23 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r22 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r23.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r22, "Error closing BufferedReader", $r21);
+
+     label18:
+        if r55 == null goto label19;
+
+        virtualinvoke r55.<java.io.InputStreamReader: void close()>();
+
+     label19:
+        goto label21;
+
+     label20:
+        $r42 := @caughtexception;
+
+        $r44 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r43 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r44.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r43, "Error closing InputStreamReader", $r42);
+
+     label21:
+        if r53 == null goto label22;
+
+        virtualinvoke r53.<java.net.Socket: void close()>();
+
+     label22:
+        goto label24;
+
+     label23:
+        $r36 := @caughtexception;
+
+        $r38 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r37 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r38.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r37, "Error closing Socket", $r36);
+
+     label24:
+        if r52 == null goto label25;
+
+        virtualinvoke r52.<java.net.ServerSocket: void close()>();
+
+     label25:
+        goto label41;
+
+     label26:
+        $r18 := @caughtexception;
+
+        $r20 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r19 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r20.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r19, "Error closing ServerSocket", $r18);
+
+        goto label41;
+
+     label27:
+        $r11 := @caughtexception;
+
+     label28:
+        if r54 == null goto label29;
+
+        virtualinvoke r54.<java.io.BufferedReader: void close()>();
+
+     label29:
+        goto label31;
+
+     label30:
+        $r27 := @caughtexception;
+
+        $r29 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r28 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r29.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r28, "Error closing BufferedReader", $r27);
+
+     label31:
+        if r55 == null goto label32;
+
+        virtualinvoke r55.<java.io.InputStreamReader: void close()>();
+
+     label32:
+        goto label34;
+
+     label33:
+        $r45 := @caughtexception;
+
+        $r47 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r46 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r47.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r46, "Error closing InputStreamReader", $r45);
+
+     label34:
+        if r53 == null goto label35;
+
+        virtualinvoke r53.<java.net.Socket: void close()>();
+
+     label35:
+        goto label37;
+
+     label36:
+        $r24 := @caughtexception;
+
+        $r26 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r25 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r26.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r25, "Error closing Socket", $r24);
+
+     label37:
+        if r52 == null goto label38;
+
+        virtualinvoke r52.<java.net.ServerSocket: void close()>();
+
+     label38:
+        goto label40;
+
+     label39:
+        $r33 := @caughtexception;
+
+        $r35 = <testcasesupport.IO: java.util.logging.Logger logger>;
+
+        $r34 = <java.util.logging.Level: java.util.logging.Level WARNING>;
+
+        virtualinvoke $r35.<java.util.logging.Logger: void log(java.util.logging.Level,java.lang.String,java.lang.Throwable)>($r34, "Error closing ServerSocket", $r33);
+
+     label40:
+        throw $r11;
+
+     label41:
+        $r69 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r70 = virtualinvoke $r69.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i1 = virtualinvoke $r70.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i1 < 0 goto label42;
+
+        r71 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label43;
+
+     label42:
+        r71 = "/bin/ls ";
+
+     label43:
+        $r6 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r71);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r51);
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r72 = virtualinvoke $r6.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r10);
+
+        virtualinvoke r72.<java.lang.Process: int waitFor()>();
+
+        return;
+
+        catch java.io.IOException from label02 to label03 with label04;
+        catch java.io.IOException from label05 to label06 with label07;
+        catch java.io.IOException from label08 to label09 with label10;
+        catch java.io.IOException from label11 to label12 with label13;
+        catch java.io.IOException from label01 to label02 with label14;
+        catch java.io.IOException from label15 to label16 with label17;
+        catch java.io.IOException from label18 to label19 with label20;
+        catch java.io.IOException from label21 to label22 with label23;
+        catch java.io.IOException from label24 to label25 with label26;
+        catch java.lang.Throwable from label01 to label02 with label27;
+        catch java.lang.Throwable from label14 to label15 with label27;
+        catch java.io.IOException from label28 to label29 with label30;
+        catch java.io.IOException from label31 to label32 with label33;
+        catch java.io.IOException from label34 to label35 with label36;
+        catch java.io.IOException from label37 to label38 with label39;
+        catch java.lang.Throwable from label27 to label28 with label27;
+    }
+
+    private void goodG2B1() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__listen_tcp_09 r0;
+        java.lang.Process r2;
+        java.lang.String $r3, $r4, $r9, r10;
+        int $i0;
+        java.lang.Runtime $r5;
+        java.lang.StringBuilder $r6, $r7, $r8;
+
+        r0 := @this: CWE78_OS_Command_Injection__listen_tcp_09;
+
+        $r3 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r4 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r10 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r10 = "/bin/ls ";
+
+     label2:
+        $r5 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r10);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r2 = virtualinvoke $r5.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r9);
+
+        virtualinvoke r2.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    private void goodG2B2() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__listen_tcp_09 r0;
+        java.lang.Process r2;
+        java.lang.String $r3, $r4, $r9, r10;
+        int $i0;
+        java.lang.Runtime $r5;
+        java.lang.StringBuilder $r6, $r7, $r8;
+
+        r0 := @this: CWE78_OS_Command_Injection__listen_tcp_09;
+
+        $r3 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r4 = virtualinvoke $r3.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r4.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r10 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r10 = "/bin/ls ";
+
+     label2:
+        $r5 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>()>();
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r10);
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r2 = virtualinvoke $r5.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r9);
+
+        virtualinvoke r2.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public void good() throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__listen_tcp_09 r0;
+        testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__listen_tcp_09 r1, r2;
+
+        r0 := @this: CWE78_OS_Command_Injection__listen_tcp_09;
+
+        r1 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__listen_tcp_09) r0;
+
+        specialinvoke r1.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__listen_tcp_09: void goodG2B1()>();
+
+        r2 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__listen_tcp_09) r0;
+
+        specialinvoke r2.<testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__listen_tcp_09: void goodG2B2()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[]) throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException
+    {
+        java.lang.String[] r0;
+
+        r0 := @parameter0: java.lang.String[];
+
+        staticinvoke <testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__listen_tcp_09: void mainFromParent(java.lang.String[])>(r0);
+
+        return;
+    }
+}

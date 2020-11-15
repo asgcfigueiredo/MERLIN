@@ -1,0 +1,128 @@
+public class CWE78_OS_Command_Injection__getQueryString_Servlet_66b extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        CWE78_OS_Command_Injection__getQueryString_Servlet_66b r0;
+
+        r0 := @this: CWE78_OS_Command_Injection__getQueryString_Servlet_66b;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void badSink(java.lang.String[], javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getQueryString_Servlet_66b r0;
+        java.lang.String[] r1;
+        javax.servlet.http.HttpServletRequest r2;
+        javax.servlet.http.HttpServletResponse r3;
+        java.lang.String r4, $r6, $r7, $r12, r13;
+        java.lang.Process r5;
+        int $i0;
+        java.lang.Runtime $r8;
+        java.lang.StringBuilder $r9, $r10, $r11;
+
+        r0 := @this: CWE78_OS_Command_Injection__getQueryString_Servlet_66b;
+
+        r1 := @parameter0: java.lang.String[];
+
+        r2 := @parameter1: javax.servlet.http.HttpServletRequest;
+
+        r3 := @parameter2: javax.servlet.http.HttpServletResponse;
+
+        r4 = r1[2];
+
+        $r6 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r7 = virtualinvoke $r6.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r7.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r13 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r13 = "/bin/ls ";
+
+     label2:
+        $r8 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r13);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r4);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r5 = virtualinvoke $r8.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r12);
+
+        virtualinvoke r5.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+
+    public void goodG2BSink(java.lang.String[], javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) throws java.lang.Throwable
+    {
+        CWE78_OS_Command_Injection__getQueryString_Servlet_66b r0;
+        java.lang.String[] r1;
+        javax.servlet.http.HttpServletRequest r2;
+        javax.servlet.http.HttpServletResponse r3;
+        java.lang.String r4, $r6, $r7, $r12, r13;
+        java.lang.Process r5;
+        int $i0;
+        java.lang.Runtime $r8;
+        java.lang.StringBuilder $r9, $r10, $r11;
+
+        r0 := @this: CWE78_OS_Command_Injection__getQueryString_Servlet_66b;
+
+        r1 := @parameter0: java.lang.String[];
+
+        r2 := @parameter1: javax.servlet.http.HttpServletRequest;
+
+        r3 := @parameter2: javax.servlet.http.HttpServletResponse;
+
+        r4 = r1[2];
+
+        $r6 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $r7 = virtualinvoke $r6.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $i0 = virtualinvoke $r7.<java.lang.String: int indexOf(java.lang.String)>("win");
+
+        if $i0 < 0 goto label1;
+
+        r13 = "c:\\WINDOWS\\SYSTEM32\\cmd.exe /c dir ";
+
+        goto label2;
+
+     label1:
+        r13 = "/bin/ls ";
+
+     label2:
+        $r8 = staticinvoke <java.lang.Runtime: java.lang.Runtime getRuntime()>();
+
+        $r9 = new java.lang.StringBuilder;
+
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>()>();
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r13);
+
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r4);
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        r5 = virtualinvoke $r8.<java.lang.Runtime: java.lang.Process exec(java.lang.String)>($r12);
+
+        virtualinvoke r5.<java.lang.Process: int waitFor()>();
+
+        return;
+    }
+}

@@ -1,0 +1,17 @@
+digraph "void <init>()" {
+    label="void <init>()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="specialinvoke r0.<init>()",];
+    "0"->"1";
+    "2" [label="r1 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0",];
+    "1"->"2";
+    "3" [label="r1.privateTrue = 1",];
+    "2"->"3";
+    "4" [label="r2 = (testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getParameter_Servlet_05) r0",];
+    "3"->"4";
+    "5" [label="r2.privateFalse = 0",];
+    "4"->"5";
+    "6" [style=filled,fillcolor=lightgray,label="return",];
+    "5"->"6";
+}

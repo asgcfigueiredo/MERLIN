@@ -1,0 +1,9 @@
+digraph "void main(java.lang.String[])" {
+    label="void main(java.lang.String[])";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @parameter0",];
+    "1" [label="testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__getCookies_Servlet_31.mainFromParent(r0)",];
+    "0"->"1";
+    "2" [style=filled,fillcolor=lightgray,label="return",];
+    "1"->"2";
+}

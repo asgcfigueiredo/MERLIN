@@ -1,0 +1,15 @@
+digraph "void badSink(java.lang.String)" {
+    label="void badSink(java.lang.String)";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="r1 := @parameter0",];
+    "0"->"1";
+    "2" [label="$r2 = new testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_53c",];
+    "1"->"2";
+    "3" [label="specialinvoke $r2.<init>()",];
+    "2"->"3";
+    "4" [label="$r2.badSink(r1)",];
+    "3"->"4";
+    "5" [style=filled,fillcolor=lightgray,label="return",];
+    "4"->"5";
+}

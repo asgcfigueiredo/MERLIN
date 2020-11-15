@@ -1,0 +1,29 @@
+digraph "void goodG2B()" {
+    label="void goodG2B()";
+    node [shape=box];
+    "0" [style=filled,fillcolor=gray,label="r0 := @this",];
+    "1" [label="$r3 = new java.util.HashMap",];
+    "0"->"1";
+    "2" [label="specialinvoke $r3.<init>()",];
+    "1"->"2";
+    "3" [label="$r4 = java.lang.Integer.valueOf(0)",];
+    "2"->"3";
+    "4" [label="$r3.put($r4, \"foo\")",];
+    "3"->"4";
+    "5" [label="$r6 = java.lang.Integer.valueOf(1)",];
+    "4"->"5";
+    "6" [label="$r3.put($r6, \"foo\")",];
+    "5"->"6";
+    "7" [label="$r8 = java.lang.Integer.valueOf(2)",];
+    "6"->"7";
+    "8" [label="$r3.put($r8, \"foo\")",];
+    "7"->"8";
+    "9" [label="$r10 = new testcases.CWE78_OS_Command_Injection.CWE78_OS_Command_Injection__connect_tcp_74b",];
+    "8"->"9";
+    "10" [label="specialinvoke $r10.<init>()",];
+    "9"->"10";
+    "11" [label="$r10.goodG2BSink($r3)",];
+    "10"->"11";
+    "12" [style=filled,fillcolor=lightgray,label="return",];
+    "11"->"12";
+}

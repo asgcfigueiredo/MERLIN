@@ -32,9 +32,18 @@ You also need to install the python dependencies needed to execute the start-scr
 MERLIN already has the necessary configuration files for Java e PHP. If you want to execute the tool with other programming languages, you need to provide two configuration files: one configuration file with the sources, sanitization functions and sensitive sinks and other configuration file with the information regarding the attributes. The filenames of the configuration files should be `SensitiveSinks*LanguageExtension*.json` and `AttributesInfo*LanguageExtension*.json` respectively. The configuration files should be placed in the SEAL_Tool\CSGandAE\src\main\resources directory. Take a look at the configuration files available for Java and PHP, to build a similar one for the language to be considered. 
 To execute the tool, you can use the start-script.py in the main directory. If you use the `-help` flag, you can understand how you can use this script. The flags available in these script are:
 
-* --mount [path] - Directory to be mount
-* --config [path] - Path for the RockFS configuration file (For example: config/safecloudfs.properties). More about the configuration file [here](doc/CONFIG_FILE.md).
-* -- debug <ALL, SIMPLE, WARNING, SEVERE, INFO, FINE, FINER, FINEST> - Execute with debug log messages
+* -h, - help - Display helps and exit the program;
+* -f [filename] - Specifies which files the tool should check for vulnerabilities. Default: check for vulnerabilities within the files inside the input folder;
+* -d directoryName - Specifies in which directory are the files to be processed;
+* -mvnInstall - By activating this flag it will use mvn clean install command. The default command used to compile web applications written in Java is mvn tomcat7:run;
+* -mvnCompile - By activating this flag it will use mvn clean compile command. The default command used to compile web applications written in Java is mvn tomcat7:run;
+* -t type - Specifies the programming language of the files to be processed;
+     java - Files written in java; 
+     php - Files written in php;
+* -bt - Indicates that the files to be processed are in bytecode;
+* -cp [path] - Specify where to find user class files and annotation processors used to compile;
+* -auxFiles [filenames] : Specifies files that the files to process might depend on;
+* -debug - Enable all outputs from the programs executed.
 
 ## Run submodule JPHP
 

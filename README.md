@@ -76,7 +76,10 @@ mvn exec:java -Dexec.args="-[flags]"
 
 The available flags are the following:
 
-* --mount [path] - Directory to be mount
+* -t [ext] - flag corresponding to the extension of the files to be processed ex: java, php;
+* -vulnInfo [configFile]- flag corresponding to the vulnerability information files;
+* -f [filepath] - flag corresponding to the files to be processed;
+* -file [Auxfilename] - txt file with a list of files to be processed.
 
 ## Authors
 

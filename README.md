@@ -17,18 +17,19 @@ MERLIN was designed in a Windows environment. To run the tool is necessary Pytho
 Before running the main script, you need to install the required libs to you local Maven repository. In the SEAL_Tool\CSGandAE directory, you need to execute the following command:
 
 ```
-mvn clean compile
+mvn clean install
 ```
 
 If you want to use JPHP, you also need to execute in the SEAL_Tool\BytecodeGenerator\jphp directory the following command:
 
 ```
-mvn clean compile
+mvn clean install
 ```
 You also need to install the python dependencies needed to execute the start-script and the classifier.
 
 ## Running MERLIN
 
+MERLIN already has the necessary configuration files for Java e PHP. If you want to execute the tool with other programming languages, you need to provide two configuration files: one configuration file with the sources, sanitization functions and sensitive sinks and other configuration file with the information regarding the attributes. The filenames of the configuration files should be `SensitiveSinks*LanguageExtension*.json` and `AttributesInfo*LanguageExtension*.json` respectively. The configuration files should be placed in the SEAL_Tool\CSGandAE\src\main\resources directory. Take a look at the configuration files available for Java and PHP, to build a similar one for the language to be considered. 
 To execute the tool, you can use the start-script.py in the main directory. If you use the `-help` flag, you can understand how you can use this script. The flags available in these script are:
 
 * --mount [path] - Directory to be mount
@@ -37,3 +38,30 @@ To execute the tool, you can use the start-script.py in the main directory. If y
 
 ## Run submodule JPHP
 
+To run JPHP separately, execute the following command:
+
+```
+mvn exec:java -Dexec.args="[filepath]"
+```
+
+## Run submodule Soot
+
+To generate Jimple code, you can use the following command:
+
+```
+java -cp  soot.Main -cp . -allow-phantom-refs -pp -f J [nameOftheClassFile]
+```
+
+To generate the CFGs, you can use the following command:
+```
+java -cp  soot.Main -cp . -allow-phantom-refs -pp -dump-cfg ALL -f J [nameOftheClassFile]
+```
+
+## Run submodule CSGandAE 
+
+
+
+## Authors
+
+* **[Alexandra Figueiredo](https://github.com/asgcfigueiredo)**
+* **[Prof. Miguel Correia](https://github.com/mpcorreia)**
